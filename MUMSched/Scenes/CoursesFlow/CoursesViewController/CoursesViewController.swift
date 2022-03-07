@@ -68,6 +68,13 @@ final class CoursesViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.registerNib(for: CourseTableViewCell.self)
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.tintColor = .black
+        tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
+    }
+    
+    @objc private func refresh() {
+        viewModel.load()
     }
     
     @objc private func addTouched() {
@@ -103,5 +110,6 @@ extension CoursesViewController: CoursesViewModelDelegate {
     
     func update() {
         tableView.reloadData()
+        tableView.refreshControl?.endRefreshing()
     }
 }

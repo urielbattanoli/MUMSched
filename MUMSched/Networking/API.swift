@@ -11,6 +11,10 @@ public typealias JSON = [String : Any]
 
 public enum API<T: Codable> {
     case login
+    case listCourses
+    case addCourse
+    case updateCourse(id: Int)
+    case deleteCourse(id: Int)
 }
 
 internal struct MUMDataResults<T: Codable>: Codable {

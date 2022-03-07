@@ -9,6 +9,7 @@ import UIKit
 
 final class CourseTableViewCell: NibRegistrableTableViewCell {
     
+    @IBOutlet private weak var codeLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     
 }
@@ -17,7 +18,8 @@ final class CourseTableViewCell: NibRegistrableTableViewCell {
 extension CourseTableViewCell: DynamicCellComponent {
     
     func updateUI(with data: Any?) {
-        guard let data = data as? String else { return }
-        titleLabel.text = data
+        guard let data = data as? Course else { return }
+        codeLabel.text = data.code
+        titleLabel.text = data.name
     }
 }

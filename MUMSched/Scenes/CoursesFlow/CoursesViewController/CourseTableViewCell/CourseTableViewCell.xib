@@ -17,11 +17,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="424" height="84"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6v1-Sj-lPu">
+                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="6v1-Sj-lPu">
                         <rect key="frame" x="16" y="16" width="392" height="52"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CS500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMg-Fb-lpp">
+                                <rect key="frame" x="0.0" y="0.0" width="53" height="52"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Advanced Software Development" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAQ-vL-pY0">
-                                <rect key="frame" x="0.0" y="0.0" width="374.5" height="52"/>
+                                <rect key="frame" x="69" y="0.0" width="289.5" height="52"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,6 +48,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="codeLabel" destination="bMg-Fb-lpp" id="6kN-Wz-sDL"/>
                 <outlet property="titleLabel" destination="eAQ-vL-pY0" id="w83-Yb-Nqf"/>
             </connections>
             <point key="canvasLocation" x="213.04347826086959" y="152.00892857142856"/>

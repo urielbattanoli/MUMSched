@@ -20,14 +20,16 @@ extension API {
     var path: String {
         switch self {
         case .login: return "login"
+        case .listCourses, .addCourse: return "courses"
+        case .updateCourse(let id), .deleteCourse(let id): return "courses/\(id)"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-//        case : return .delete
-//        case : return .get
-//        case : return .put
+        case .listCourses: return .get
+        case .deleteCourse: return .delete
+        case .updateCourse: return .put
         default: return .post
         }
     }

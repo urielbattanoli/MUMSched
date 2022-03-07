@@ -12,7 +12,7 @@ protocol AddCourseViewDelegate: AnyObject {
     var view: AddCourseViewModelDelegate? { get set }
     var title: String { get }
     var sendButtonTitle: String { get }
-    var id: String { get set }
+    var code: String { get set }
     var name: String { get set }
     
     func isValid(showError: Bool) -> Bool
@@ -28,7 +28,6 @@ final class AddCourseViewController: UIViewController {
             nav.pushViewController(view, animated: true)
         } else {
             let nav = UINavigationController(rootViewController: view)
-            nav.modalPresentationStyle = .fullScreen
             controller.present(nav, animated: true)
         }
     }
@@ -62,7 +61,7 @@ final class AddCourseViewController: UIViewController {
         
         idInputView.headerLabel.text = "Course ID"
         idInputView.textField.placeholder = "ID"
-        idInputView.text = viewModel.id
+        idInputView.text = viewModel.code
         idInputView.textChanged = { [weak self] in self?.idTextChanged() }
         
         nameInputView.headerLabel.text = "Course Name"
@@ -72,7 +71,7 @@ final class AddCourseViewController: UIViewController {
     }
     
     private func idTextChanged() {
-        viewModel.id = idInputView.text ?? ""
+        viewModel.code = idInputView.text ?? ""
         idInputView.hideErrorMessage()
         idInputView.textField.rightView = nil
         changeButtonState()

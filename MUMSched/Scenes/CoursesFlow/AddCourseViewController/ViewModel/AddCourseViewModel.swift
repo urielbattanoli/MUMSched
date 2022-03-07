@@ -6,6 +6,11 @@
 //
 
 import Foundation
+import UIKit
+
+protocol UpdateDelegate {
+    func shouldUpdate()
+}
 
 protocol AddCourseViewModelDelegate: BaseProtocolDelegate {
     
@@ -17,20 +22,24 @@ final class AddCourseViewModel: AddCourseViewDelegate {
     
     weak var view: AddCourseViewModelDelegate?
     
-    private var course: String?
-    var title: String { course == nil ? "Add Course" : "Edit Course" }
-    var sendButtonTitle: String { course == nil ? "Add Course" : "Save Course" }
-    var id: String = ""
+    private var updateDelegate: UpdateDelegate
+    private var course: Course?
+    private var isEdit: Bool { return course != nil }
+    var title: String { isEdit ? "Edit Course" : "Add Course" }
+    var sendButtonTitle: String { isEdit ? "Save Course" : "Add Course" }
+    var code: String = ""
     var name: String = ""
     
-    init(course: String? = nil) {
+    init(course: Course? = nil, delegate: UpdateDelegate) {
         self.course = course
-        self.name = course ?? ""
+        self.updateDelegate = delegate
+        self.code = course?.code ?? ""
+        self.name = course?.name ?? ""
     }
     
     func isValid(showError: Bool) -> Bool {
         guard !showError else {
-            if id.isEmpty {
+            if code.isEmpty {
                 view?.showIdError()
                 return false
             }
@@ -40,11 +49,51 @@ final class AddCourseViewModel: AddCourseViewDelegate {
             }
             return true
         }
-        return !id.isEmpty && !name.isEmpty
+        return !code.isEmpty && !name.isEmpty
     }
     
     func sendTouched() {
         guard isValid(showError: true) else { return }
-        //TODO: Request
+        
+        view?.startLoading?(completion: {
+            guard let id = self.course?.id else {
+                API<Course>.addCourse.request(params: ["code": self.code, "name": self.name], completion: { [weak self] result in
+                    self?.view?.stopLoading?(completion: {
+                        switch result {
+                        case .success:
+                            let ok = UIAlertAction(title: "Ok", style: .default) { _ in
+                                self?.updateDelegate.shouldUpdate()
+                                self?.view?.dismiss()
+                            }
+                            self?.view?.showSimpleAlertController("Success",
+                                                                  message: "Course created!",
+                                                                  actions: [ok],
+                                                                  cancel: false,
+                                                                  style: .alert)
+                        case .failure(let error):
+                            self?.view?.error?(message: error.localizedDescription)
+                        }
+                    })
+                })
+                return
+            }
+            API<Course>.updateCourse(id: id).request(params: ["code": self.code, "name": self.name], completion: { [weak self] result in
+                self?.view?.stopLoading?(completion: {
+                    switch result {
+                    case .success:
+                        let ok = UIAlertAction(title: "Ok", style: .default) { _ in
+                            self?.updateDelegate.shouldUpdate()
+                        }
+                        self?.view?.showSimpleAlertController("Success",
+                                                              message: "Course updated!",
+                                                              actions: [ok],
+                                                              cancel: false,
+                                                              style: .alert)
+                    case .failure(let error):
+                        self?.view?.error?(message: error.localizedDescription)
+                    }
+                })
+            })
+        })
     }
 }

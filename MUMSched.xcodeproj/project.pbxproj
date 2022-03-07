@@ -40,6 +40,7 @@
 		BE4FA72D27D5C7FE00441B99 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE4FA72B27D5C7FE00441B99 /* LoginViewController.xib */; };
 		BE4FA73027D5CA7C00441B99 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4FA72F27D5CA7C00441B99 /* LoginViewModel.swift */; };
 		BE4FA73327D5CB0D00441B99 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4FA73227D5CB0D00441B99 /* User.swift */; };
+		BE4FA73527D5D1F600441B99 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4FA73427D5D1F600441B99 /* Course.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		BE4FA72B27D5C7FE00441B99 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		BE4FA72F27D5CA7C00441B99 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		BE4FA73227D5CB0D00441B99 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BE4FA73427D5D1F600441B99 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		F6E023F203D51B3EB202B8EE /* libPods-MUMSched.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MUMSched.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -285,6 +287,7 @@
 			isa = PBXGroup;
 			children = (
 				BE4FA73227D5CB0D00441B99 /* User.swift */,
+				BE4FA73427D5D1F600441B99 /* Course.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				BE049FBA27D57D0C009B7C2E /* ViewExtension.swift in Sources */,
 				BE4FA73327D5CB0D00441B99 /* User.swift in Sources */,
 				BE049FA127D55C25009B7C2E /* ViewControllerExtension.swift in Sources */,
+				BE4FA73527D5D1F600441B99 /* Course.swift in Sources */,
 				BE049F9127D53F7A009B7C2E /* Utils.swift in Sources */,
 				BE049FA827D56941009B7C2E /* API+Configuration.swift in Sources */,
 			);
