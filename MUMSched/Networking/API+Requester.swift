@@ -45,10 +45,10 @@ extension API {
         case .success(let data):
             do {
                 let object = try decoder.decode(MUMError.self, from: data)
-                if object.code == 209 {
+                if object.status == 209 {
                     NotificationCenter.default.post(name: NSNotification.Name.init("application_logout"), object: nil)
                 }
-                guard object.code == 223 || object.code == 228 else { return .failure(object) }
+                guard object.status == 223 || object.status == 228 else { return .failure(object) }
                 do {
                     let dict = try JSONSerialization.jsonObject(with: data, options: []) as? JSON
                     let error = dict?["error"] as? String

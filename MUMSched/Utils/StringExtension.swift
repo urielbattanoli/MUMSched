@@ -65,7 +65,7 @@ extension String {
     }
     
     func isValidPassword() -> Bool {
-        return self.count > 5
+        return self.count > 4
     }
     
     func isValidUsername() -> Bool {

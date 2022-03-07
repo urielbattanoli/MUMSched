@@ -16,6 +16,10 @@ final class InitialViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        CoursesViewController.present(in: self, viewModel: CoursesViewModel())
+        if User.current == nil {
+            LoginViewController.present(in: self, viewModel: LoginViewModel())
+        } else {
+            CoursesViewController.present(in: self, viewModel: CoursesViewModel())
+        }
     }
 }

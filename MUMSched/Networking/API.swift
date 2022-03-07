@@ -24,13 +24,14 @@ internal struct MUMDataResult<T: Codable>: Codable {
 public struct MUMError: Codable, Error, LocalizedError {
     
     public static var unknown: MUMError {
-        return MUMError(code: -1, error: "Unknown")
+        return MUMError(status: -1, error: "Unknown", message: "Unknown")
     }
     
-    public let code: Int
+    public let status: Int
     public let error: String
+    public let message: String
     
     public var errorDescription: String? {
-        return error
+        return message
     }
 }
