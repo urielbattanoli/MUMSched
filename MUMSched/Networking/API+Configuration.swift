@@ -10,7 +10,7 @@ import Foundation
 extension API {
     
     static var baseURL: URL! {
-        return URL(string: "https://www.api.flockr.social/parse")
+        return URL(string: "https://mumsched-backend.herokuapp.com/api")
     }
     
     static var headerApplicationId: String {

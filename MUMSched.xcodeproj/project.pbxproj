@@ -27,6 +27,15 @@
 		BE049FA827D56941009B7C2E /* API+Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE049FA527D56941009B7C2E /* API+Configuration.swift */; };
 		BE049FA927D56941009B7C2E /* API+Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE049FA627D56941009B7C2E /* API+Requester.swift */; };
 		BE049FAA27D56941009B7C2E /* API+Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE049FA727D56941009B7C2E /* API+Request.swift */; };
+		BE049FAE27D56C1A009B7C2E /* AddCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE049FAC27D56C1A009B7C2E /* AddCourseViewController.swift */; };
+		BE049FAF27D56C1A009B7C2E /* AddCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE049FAD27D56C1A009B7C2E /* AddCourseViewController.xib */; };
+		BE049FB327D56F7D009B7C2E /* InputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE049FB127D56F7D009B7C2E /* InputView.xib */; };
+		BE049FB427D56F7D009B7C2E /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE049FB227D56F7D009B7C2E /* InputView.swift */; };
+		BE049FB627D570C4009B7C2E /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE049FB527D570C4009B7C2E /* NibDesignable.swift */; };
+		BE049FB827D570F2009B7C2E /* UITextFieldPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE049FB727D570F2009B7C2E /* UITextFieldPadding.swift */; };
+		BE049FBA27D57D0C009B7C2E /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE049FB927D57D0C009B7C2E /* ViewExtension.swift */; };
+		BE049FBC27D57D44009B7C2E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE049FBB27D57D44009B7C2E /* StringExtension.swift */; };
+		BE049FBF27D5B289009B7C2E /* AddCourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE049FBE27D5B289009B7C2E /* AddCourseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +62,15 @@
 		BE049FA527D56941009B7C2E /* API+Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API+Configuration.swift"; sourceTree = "<group>"; };
 		BE049FA627D56941009B7C2E /* API+Requester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API+Requester.swift"; sourceTree = "<group>"; };
 		BE049FA727D56941009B7C2E /* API+Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "API+Request.swift"; sourceTree = "<group>"; };
+		BE049FAC27D56C1A009B7C2E /* AddCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewController.swift; sourceTree = "<group>"; };
+		BE049FAD27D56C1A009B7C2E /* AddCourseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCourseViewController.xib; sourceTree = "<group>"; };
+		BE049FB127D56F7D009B7C2E /* InputView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputView.xib; sourceTree = "<group>"; };
+		BE049FB227D56F7D009B7C2E /* InputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		BE049FB527D570C4009B7C2E /* NibDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
+		BE049FB727D570F2009B7C2E /* UITextFieldPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITextFieldPadding.swift; sourceTree = "<group>"; };
+		BE049FB927D57D0C009B7C2E /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
+		BE049FBB27D57D44009B7C2E /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		BE049FBE27D5B289009B7C2E /* AddCourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCourseViewModel.swift; sourceTree = "<group>"; };
 		F6E023F203D51B3EB202B8EE /* libPods-MUMSched.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MUMSched.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,7 +100,6 @@
 				5A11A0D4DB775EE69D1C8472 /* Pods-MUMSched.debug.xcconfig */,
 				62BA1E2BEA1DE7600B9FD6C7 /* Pods-MUMSched.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -121,6 +138,7 @@
 		BE049F8227D53978009B7C2E /* CoursesFlow */ = {
 			isa = PBXGroup;
 			children = (
+				BE049FAB27D56BFD009B7C2E /* AddCourseViewController */,
 				BE049F8327D53998009B7C2E /* CoursesViewController */,
 			);
 			path = CoursesFlow;
@@ -148,8 +166,13 @@
 		BE049F8B27D53F1E009B7C2E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				BE049FB027D56F7D009B7C2E /* InputView */,
 				BE049F9D27D55B59009B7C2E /* BaseClasses */,
 				BE049F8C27D53F33009B7C2E /* CellComponent.swift */,
+				BE049FB927D57D0C009B7C2E /* ViewExtension.swift */,
+				BE049FBB27D57D44009B7C2E /* StringExtension.swift */,
+				BE049FB727D570F2009B7C2E /* UITextFieldPadding.swift */,
+				BE049FB527D570C4009B7C2E /* NibDesignable.swift */,
 				BE049F8E27D53F54009B7C2E /* NibRegistrationView.swift */,
 				BE049F9027D53F7A009B7C2E /* Utils.swift */,
 			);
@@ -201,6 +224,33 @@
 				BE049FA627D56941009B7C2E /* API+Requester.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		BE049FAB27D56BFD009B7C2E /* AddCourseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE049FBD27D5B26B009B7C2E /* ViewModel */,
+				BE049FAC27D56C1A009B7C2E /* AddCourseViewController.swift */,
+				BE049FAD27D56C1A009B7C2E /* AddCourseViewController.xib */,
+			);
+			path = AddCourseViewController;
+			sourceTree = "<group>";
+		};
+		BE049FB027D56F7D009B7C2E /* InputView */ = {
+			isa = PBXGroup;
+			children = (
+				BE049FB127D56F7D009B7C2E /* InputView.xib */,
+				BE049FB227D56F7D009B7C2E /* InputView.swift */,
+			);
+			path = InputView;
+			sourceTree = "<group>";
+		};
+		BE049FBD27D5B26B009B7C2E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE049FBE27D5B289009B7C2E /* AddCourseViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,10 +313,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE049F7B27D53956009B7C2E /* LaunchScreen.storyboard in Resources */,
+				BE049FAF27D56C1A009B7C2E /* AddCourseViewController.xib in Resources */,
 				BE049F8727D539B6009B7C2E /* CoursesViewController.xib in Resources */,
 				BE049F7827D53956009B7C2E /* Assets.xcassets in Resources */,
 				BE049F9627D541FB009B7C2E /* CourseTableViewCell.xib in Resources */,
 				BE049F9C27D5561C009B7C2E /* InitialViewController.xib in Resources */,
+				BE049FB327D56F7D009B7C2E /* InputView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,12 +359,19 @@
 				BE049F8A27D539E0009B7C2E /* CoursesViewModel.swift in Sources */,
 				BE049F8627D539B6009B7C2E /* CoursesViewController.swift in Sources */,
 				BE049F8F27D53F54009B7C2E /* NibRegistrationView.swift in Sources */,
+				BE049FB427D56F7D009B7C2E /* InputView.swift in Sources */,
 				BE049F6F27D53954009B7C2E /* AppDelegate.swift in Sources */,
+				BE049FB827D570F2009B7C2E /* UITextFieldPadding.swift in Sources */,
+				BE049FBF27D5B289009B7C2E /* AddCourseViewModel.swift in Sources */,
 				BE049FAA27D56941009B7C2E /* API+Request.swift in Sources */,
+				BE049FAE27D56C1A009B7C2E /* AddCourseViewController.swift in Sources */,
 				BE049F9B27D5561C009B7C2E /* InitialViewController.swift in Sources */,
 				BE049FA927D56941009B7C2E /* API+Requester.swift in Sources */,
+				BE049FBC27D57D44009B7C2E /* StringExtension.swift in Sources */,
+				BE049FB627D570C4009B7C2E /* NibDesignable.swift in Sources */,
 				BE049F9527D541FB009B7C2E /* CourseTableViewCell.swift in Sources */,
 				BE049F8D27D53F33009B7C2E /* CellComponent.swift in Sources */,
+				BE049FBA27D57D0C009B7C2E /* ViewExtension.swift in Sources */,
 				BE049FA127D55C25009B7C2E /* ViewControllerExtension.swift in Sources */,
 				BE049F9127D53F7A009B7C2E /* Utils.swift in Sources */,
 				BE049FA827D56941009B7C2E /* API+Configuration.swift in Sources */,

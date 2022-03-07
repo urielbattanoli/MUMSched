@@ -6,10 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
-protocol CoursesViewModelDelegate: AnyObject {
+protocol CoursesViewModelDelegate: BaseProtocolDelegate {
     
-    func updateView()
 }
 
 final class CoursesViewModel: CoursesViewDelegate {
@@ -19,7 +19,7 @@ final class CoursesViewModel: CoursesViewDelegate {
     private var courses: [String] = ["Machine Learning", "Software Engineering", "Enterprise Architecture", "Web Programming", "Advanced Software Development"]
     
     func load() {
-        view?.updateView()
+        view?.update?()
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {
@@ -32,10 +32,13 @@ final class CoursesViewModel: CoursesViewDelegate {
     }
     
     func didSelectRowAt(at indexPath: IndexPath) {
-        
+        guard let view = view as? UIViewController else { return }
+        let course = courses[indexPath.row]
+        AddCourseViewController.present(in: view, viewModel: AddCourseViewModel(course: course))
     }
     
     func addNewCourse() {
-        
+        guard let view = view as? UIViewController else { return }
+        AddCourseViewController.present(in: view, viewModel: AddCourseViewModel())
     }
 }

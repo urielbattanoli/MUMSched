@@ -16,6 +16,6 @@ final class InitialViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        CoursesViewController.presentIn(in: self, viewModel: CoursesViewModel())
+        CoursesViewController.present(in: self, viewModel: CoursesViewModel())
     }
 }

@@ -19,7 +19,7 @@ protocol CoursesViewDelegate: AnyObject {
 
 final class CoursesViewController: UIViewController {
     
-    static func presentIn(in controller: UIViewController, viewModel: CoursesViewDelegate) {
+    static func present(in controller: UIViewController, viewModel: CoursesViewDelegate) {
         let view = CoursesViewController(viewModel: viewModel)
         viewModel.view = view
         if let nav = controller.navigationController {
@@ -59,7 +59,7 @@ final class CoursesViewController: UIViewController {
         let add = UIBarButtonItem(barButtonSystemItem: .add,
                                   target: self,
                                   action: #selector(addTouched))
-        add.tintColor = .white
+        add.tintColor = .black
         navigationItem.rightBarButtonItem = add
     }
     
@@ -100,7 +100,7 @@ extension CoursesViewController: UITableViewDelegate {
 // MARK: - CoursesViewModelDelegate
 extension CoursesViewController: CoursesViewModelDelegate {
     
-    func updateView() {
+    func update() {
         tableView.reloadData()
     }
 }

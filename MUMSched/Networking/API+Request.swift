@@ -19,16 +19,16 @@ extension API {
     
     var path: String {
         switch self {
-        default: return ""
+        case .login: return "login"
         }
     }
     
     var method: HTTPMethod {
         switch self {
 //        case : return .delete
-//        case : return .post
+//        case : return .get
 //        case : return .put
-        default: return .get
+        default: return .post
         }
     }
     
@@ -39,22 +39,22 @@ extension API {
     }
     
     var headers: HTTPHeaders {
-        var headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "X-Parse-Application-Id": API.headerApplicationId,
-            "X-Parse-REST-API-Key": API.headerRestAPIKey
-        ]
+//        var headers: HTTPHeaders = [
+//            "Content-Type": "application/json",
+//            "X-Parse-Application-Id": API.headerApplicationId,
+//            "X-Parse-REST-API-Key": API.headerRestAPIKey
+//        ]
         
-        if let token = User.current?.sessionToken {
-            headers["X-Parse-Session-Token"] = token
-        }
-        if let id = Profile.current?.objectId {
-            headers["selected-profile-id"] = id
-        }
-        if let id = Defaults.shared.installationId {
-            headers["X-Parse-Installation-Id"] = id
-        }
+//        if let token = User.current?.sessionToken {
+//            headers["X-Parse-Session-Token"] = token
+//        }
+//        if let id = Profile.current?.objectId {
+//            headers["selected-profile-id"] = id
+//        }
+//        if let id = Defaults.shared.installationId {
+//            headers["X-Parse-Installation-Id"] = id
+//        }
         
-        return headers
+        return [:]
     }
 }
