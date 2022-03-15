@@ -46,6 +46,11 @@
 		BE97D73027DFDE9600CAF6A0 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D72E27DFDE9600CAF6A0 /* HomeCollectionViewCell.swift */; };
 		BE97D73127DFDE9600CAF6A0 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D72F27DFDE9600CAF6A0 /* HomeCollectionViewCell.xib */; };
 		BE97D73427DFDFBD00CAF6A0 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D73327DFDFBD00CAF6A0 /* HomeViewModel.swift */; };
+		BE97D73927E0E47C00CAF6A0 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D73727E0E47C00CAF6A0 /* RegistrationViewController.swift */; };
+		BE97D73A27E0E47C00CAF6A0 /* RegistrationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D73827E0E47C00CAF6A0 /* RegistrationViewController.xib */; };
+		BE97D73D27E0F3FB00CAF6A0 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D73C27E0F3FB00CAF6A0 /* RegistrationViewModel.swift */; };
+		BE97D74127E11F6D00CAF6A0 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D73F27E11F6D00CAF6A0 /* RegistrationTableViewCell.swift */; };
+		BE97D74227E11F6D00CAF6A0 /* RegistrationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D74027E11F6D00CAF6A0 /* RegistrationTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +96,11 @@
 		BE97D72E27DFDE9600CAF6A0 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		BE97D72F27DFDE9600CAF6A0 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		BE97D73327DFDFBD00CAF6A0 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		BE97D73727E0E47C00CAF6A0 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
+		BE97D73827E0E47C00CAF6A0 /* RegistrationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationViewController.xib; sourceTree = "<group>"; };
+		BE97D73C27E0F3FB00CAF6A0 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		BE97D73F27E11F6D00CAF6A0 /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewCell.swift; sourceTree = "<group>"; };
+		BE97D74027E11F6D00CAF6A0 /* RegistrationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationTableViewCell.xib; sourceTree = "<group>"; };
 		F6E023F203D51B3EB202B8EE /* libPods-MUMSched.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MUMSched.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -212,6 +222,7 @@
 		BE049F9727D555F8009B7C2E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BE97D73627E0E46100CAF6A0 /* RegistrationViewController */,
 				BE97D72927DFD9E500CAF6A0 /* HomeViewController */,
 				BE4FA72927D5C7E700441B99 /* LoginViewController */,
 				BE049F9827D55603009B7C2E /* InitialViewController */,
@@ -331,6 +342,34 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BE97D73627E0E46100CAF6A0 /* RegistrationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D73E27E11F5700CAF6A0 /* RegistrantionTableViewCell */,
+				BE97D73B27E0F3EB00CAF6A0 /* ViewModel */,
+				BE97D73727E0E47C00CAF6A0 /* RegistrationViewController.swift */,
+				BE97D73827E0E47C00CAF6A0 /* RegistrationViewController.xib */,
+			);
+			path = RegistrationViewController;
+			sourceTree = "<group>";
+		};
+		BE97D73B27E0F3EB00CAF6A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D73C27E0F3FB00CAF6A0 /* RegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE97D73E27E11F5700CAF6A0 /* RegistrantionTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D73F27E11F6D00CAF6A0 /* RegistrationTableViewCell.swift */,
+				BE97D74027E11F6D00CAF6A0 /* RegistrationTableViewCell.xib */,
+			);
+			path = RegistrantionTableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -390,11 +429,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE97D74227E11F6D00CAF6A0 /* RegistrationTableViewCell.xib in Resources */,
 				BE4FA72D27D5C7FE00441B99 /* LoginViewController.xib in Resources */,
 				BE049F7B27D53956009B7C2E /* LaunchScreen.storyboard in Resources */,
 				BE049FAF27D56C1A009B7C2E /* AddCourseViewController.xib in Resources */,
 				BE049F8727D539B6009B7C2E /* CoursesViewController.xib in Resources */,
 				BE049F7827D53956009B7C2E /* Assets.xcassets in Resources */,
+				BE97D73A27E0E47C00CAF6A0 /* RegistrationViewController.xib in Resources */,
 				BE97D73127DFDE9600CAF6A0 /* HomeCollectionViewCell.xib in Resources */,
 				BE049F9627D541FB009B7C2E /* CourseTableViewCell.xib in Resources */,
 				BE049F9C27D5561C009B7C2E /* InitialViewController.xib in Resources */,
@@ -448,6 +489,7 @@
 				BE049FBF27D5B289009B7C2E /* AddCourseViewModel.swift in Sources */,
 				BE049FAA27D56941009B7C2E /* API+Request.swift in Sources */,
 				BE97D72C27DFDDB100CAF6A0 /* HomeViewController.swift in Sources */,
+				BE97D74127E11F6D00CAF6A0 /* RegistrationTableViewCell.swift in Sources */,
 				BE4FA72C27D5C7FE00441B99 /* LoginViewController.swift in Sources */,
 				BE049FAE27D56C1A009B7C2E /* AddCourseViewController.swift in Sources */,
 				BE049F9B27D5561C009B7C2E /* InitialViewController.swift in Sources */,
@@ -460,9 +502,11 @@
 				BE4FA73327D5CB0D00441B99 /* User.swift in Sources */,
 				BE97D73427DFDFBD00CAF6A0 /* HomeViewModel.swift in Sources */,
 				BE049FA127D55C25009B7C2E /* ViewControllerExtension.swift in Sources */,
+				BE97D73D27E0F3FB00CAF6A0 /* RegistrationViewModel.swift in Sources */,
 				BE4FA73527D5D1F600441B99 /* Course.swift in Sources */,
 				BE049F9127D53F7A009B7C2E /* Utils.swift in Sources */,
 				BE049FA827D56941009B7C2E /* API+Configuration.swift in Sources */,
+				BE97D73927E0E47C00CAF6A0 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

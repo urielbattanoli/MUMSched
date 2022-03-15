@@ -26,7 +26,7 @@ final class HomeViewController: UIViewController {
         } else {
             let nav = UINavigationController(rootViewController: view)
             nav.modalPresentationStyle = .fullScreen
-            nav.modalTransitionStyle = .crossDissolve //TODO: remove
+            nav.modalTransitionStyle = .crossDissolve
             controller.present(nav, animated: true)
         }
     }

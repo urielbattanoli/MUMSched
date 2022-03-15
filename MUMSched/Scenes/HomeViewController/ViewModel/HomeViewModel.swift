@@ -37,6 +37,8 @@ enum HomeItem {
         switch self {
         case .courses:
             CoursesViewController.present(in: view, viewModel: CoursesViewModel())
+        case .registration:
+            RegistrationViewController.present(in: view, viewModel: RegistrationViewModel())
         default: break
         }
     }
