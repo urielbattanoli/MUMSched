@@ -20,7 +20,7 @@ final class User: Codable {
     let email: String
     private let userRole: String
     
-    private var role: UserRole {
+    var role: UserRole {
         return UserRole(rawValue: userRole) ?? .ERROR
     }
 }

@@ -15,6 +15,7 @@ protocol CoursesViewDelegate: AnyObject {
     func cellForRow(at indexPath: IndexPath) -> CellComponent?
     func didSelectRowAt(at indexPath: IndexPath)
     func addNewCourse()
+    func shouldUpdate()
 }
 
 final class CoursesViewController: UIViewController {
@@ -74,7 +75,7 @@ final class CoursesViewController: UIViewController {
     }
     
     @objc private func refresh() {
-        viewModel.load()
+        viewModel.shouldUpdate()
     }
     
     @objc private func addTouched() {
@@ -109,7 +110,9 @@ extension CoursesViewController: UITableViewDelegate {
 extension CoursesViewController: CoursesViewModelDelegate {
     
     func update() {
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
         tableView.reloadData()
-        tableView.refreshControl?.endRefreshing()
     }
 }

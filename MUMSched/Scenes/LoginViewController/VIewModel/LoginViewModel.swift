@@ -44,15 +44,18 @@ final class LoginViewModel: LoginViewDelegate {
     
     func login() {
         guard isValid(showError: true) else { return }
-        
-        API<User>.login.request(params: ["email": email, "password": password], completion: { [weak self] result in
-            switch result {
-            case .success(let user):
-                User.current = user
-                self?.view?.dismiss()
-            case .failure(let error):
-                self?.view?.error?(message: error.localizedDescription)
-            }
+        view?.startLoading?(completion: {
+            API<User>.login.request(params: ["email": self.email, "password": self.password], completion: { [weak self] result in
+                self?.view?.stopLoading?(completion: {
+                    switch result {
+                    case .success(let user):
+                        User.current = user
+                        self?.view?.dismiss()
+                    case .failure(let error):
+                        self?.view?.error?(message: error.localizedDescription)
+                    }
+                })
+            })
         })
     }
 }

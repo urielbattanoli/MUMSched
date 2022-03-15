@@ -14,9 +14,11 @@ protocol AddCourseViewDelegate: AnyObject {
     var sendButtonTitle: String { get }
     var code: String { get set }
     var name: String { get set }
+    var showDelete: Bool { get }
     
     func isValid(showError: Bool) -> Bool
     func sendTouched()
+    func deleteTouched()
 }
 
 final class AddCourseViewController: UIViewController {
@@ -35,6 +37,7 @@ final class AddCourseViewController: UIViewController {
     @IBOutlet private weak var idInputView: InputView!
     @IBOutlet private weak var nameInputView: InputView!
     @IBOutlet private weak var sendButton: UIButton!
+    @IBOutlet private weak var deleteButton: UIButton!
     
     private let viewModel: AddCourseViewDelegate
     
@@ -58,6 +61,7 @@ final class AddCourseViewController: UIViewController {
     private func setupView() {
         title = viewModel.title
         sendButton.setTitle(viewModel.sendButtonTitle, for: .normal)
+        deleteButton.isHidden = !viewModel.showDelete
         
         idInputView.headerLabel.text = "Course ID"
         idInputView.textField.placeholder = "ID"
@@ -91,6 +95,10 @@ final class AddCourseViewController: UIViewController {
     
     @IBAction private func sendTouched(_ sender: UIButton) {
         viewModel.sendTouched()
+    }
+    
+    @IBAction private func deleteTouched(_ sender: UIButton) {
+        viewModel.deleteTouched()
     }
 }
 

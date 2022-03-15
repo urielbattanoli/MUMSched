@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddCourseViewController" customModule="MUMSched" customModuleProvider="target">
             <connections>
+                <outlet property="deleteButton" destination="uhg-6F-GdG" id="UAp-Og-2PT"/>
                 <outlet property="idInputView" destination="L4I-yG-5p4" id="X29-v1-Dww"/>
                 <outlet property="nameInputView" destination="5Iv-88-wxX" id="iEv-Sp-Izm"/>
                 <outlet property="sendButton" destination="fN6-Hl-auP" id="lEy-cz-6GD"/>
@@ -35,25 +36,43 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fv4-kB-oXz">
                     <rect key="frame" x="0.0" y="794" width="414" height="102"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fN6-Hl-auP">
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Ebm-xl-9Ob">
                             <rect key="frame" x="16" y="16" width="382" height="44"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="44" id="f82-xx-NdI"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Add Course"/>
-                            <connections>
-                                <action selector="sendTouched:" destination="-1" eventType="touchUpInside" id="3QO-aR-Q4H"/>
-                            </connections>
-                        </button>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fN6-Hl-auP">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="f82-xx-NdI"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Add Course"/>
+                                    <connections>
+                                        <action selector="sendTouched:" destination="-1" eventType="touchUpInside" id="3QO-aR-Q4H"/>
+                                    </connections>
+                                </button>
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhg-6F-GdG">
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="krF-4W-Icc"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Delete Course"/>
+                                    <connections>
+                                        <action selector="deleteTouched:" destination="-1" eventType="touchUpInside" id="jz2-EP-fyg"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstItem="fN6-Hl-auP" firstAttribute="leading" secondItem="fv4-kB-oXz" secondAttribute="leading" constant="16" id="EDj-zr-hOU"/>
-                        <constraint firstItem="fN6-Hl-auP" firstAttribute="top" secondItem="fv4-kB-oXz" secondAttribute="top" constant="16" id="Sbh-A4-cdL"/>
-                        <constraint firstAttribute="trailing" secondItem="fN6-Hl-auP" secondAttribute="trailing" constant="16" id="jhw-23-Rf1"/>
-                        <constraint firstAttribute="bottom" secondItem="fN6-Hl-auP" secondAttribute="bottom" constant="42" id="nfr-N9-zlB"/>
+                        <constraint firstItem="Ebm-xl-9Ob" firstAttribute="top" secondItem="fv4-kB-oXz" secondAttribute="top" constant="16" id="muK-E2-BkR"/>
+                        <constraint firstAttribute="trailing" secondItem="Ebm-xl-9Ob" secondAttribute="trailing" constant="16" id="nX9-rh-w1W"/>
+                        <constraint firstAttribute="bottom" secondItem="Ebm-xl-9Ob" secondAttribute="bottom" constant="42" id="nxW-rx-vEC"/>
+                        <constraint firstItem="Ebm-xl-9Ob" firstAttribute="leading" secondItem="fv4-kB-oXz" secondAttribute="leading" constant="16" id="u8i-mw-hdJ"/>
                     </constraints>
                 </view>
             </subviews>
@@ -75,6 +94,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

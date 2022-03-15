@@ -19,7 +19,7 @@ final class InitialViewController: UIViewController {
         if User.current == nil {
             LoginViewController.present(in: self, viewModel: LoginViewModel())
         } else {
-            CoursesViewController.present(in: self, viewModel: CoursesViewModel())
+            HomeViewController.present(in: self, viewModel: HomeViewModel())
         }
     }
 }

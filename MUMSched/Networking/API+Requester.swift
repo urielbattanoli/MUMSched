@@ -18,26 +18,10 @@ extension API {
         switch response.result {
         case .success(let data) where statusCode >= 200 && statusCode <= 299:
             do {
-                if let object = try decoder.decode(MUMDataResults<T>.self, from: data).results {
-                    return .success(object)
-                }
-            } catch {
-                print("Error")
-            }
-            
-            do {
-                if let object = try decoder.decode(MUMDataResult<T>.self, from: data).result {
-                    return .success(object)
-                }
-            } catch {
-                print("Error")
-            }
-            
-            do {
                 let object = try decoder.decode(T.self, from: data)
                 return .success(object)
             } catch {
-                print("Error")
+                print("Error to decode")
             }
             
             return .failure(MUMError.unknown)
@@ -64,6 +48,9 @@ extension API {
             
             return .failure(MUMError.unknown)
         case .failure(let error):
+            if statusCode == 200, let obj = EmptyResult() as? T {
+                return .success(obj)
+            }
             return .failure(error)
         }
     }

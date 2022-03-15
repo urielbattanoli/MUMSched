@@ -17,14 +17,6 @@ public enum API<T: Codable> {
     case deleteCourse(id: Int)
 }
 
-internal struct MUMDataResults<T: Codable>: Codable {
-    let results: T?
-}
-
-internal struct MUMDataResult<T: Codable>: Codable {
-    let result: T?
-}
-
 public struct MUMError: Codable, Error, LocalizedError {
     
     public static var unknown: MUMError {
@@ -39,3 +31,5 @@ public struct MUMError: Codable, Error, LocalizedError {
         return message
     }
 }
+
+struct EmptyResult: Codable { }
