@@ -51,6 +51,12 @@
 		BE97D73D27E0F3FB00CAF6A0 /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D73C27E0F3FB00CAF6A0 /* RegistrationViewModel.swift */; };
 		BE97D74127E11F6D00CAF6A0 /* RegistrationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D73F27E11F6D00CAF6A0 /* RegistrationTableViewCell.swift */; };
 		BE97D74227E11F6D00CAF6A0 /* RegistrationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D74027E11F6D00CAF6A0 /* RegistrationTableViewCell.xib */; };
+		BE97D75027E1379800CAF6A0 /* FacultyCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D74E27E1379800CAF6A0 /* FacultyCoursesViewController.swift */; };
+		BE97D75127E1379800CAF6A0 /* FacultyCoursesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D74F27E1379800CAF6A0 /* FacultyCoursesViewController.xib */; };
+		BE97D75427E13A7000CAF6A0 /* FacultyCoursesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D75327E13A7000CAF6A0 /* FacultyCoursesViewModel.swift */; };
+		BE97D75827E13B8300CAF6A0 /* SelectCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D75627E13B8300CAF6A0 /* SelectCourseViewController.swift */; };
+		BE97D75927E13B8300CAF6A0 /* SelectCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D75727E13B8300CAF6A0 /* SelectCourseViewController.xib */; };
+		BE97D75C27E1489F00CAF6A0 /* SelectCourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D75B27E1489F00CAF6A0 /* SelectCourseViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +107,12 @@
 		BE97D73C27E0F3FB00CAF6A0 /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		BE97D73F27E11F6D00CAF6A0 /* RegistrationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewCell.swift; sourceTree = "<group>"; };
 		BE97D74027E11F6D00CAF6A0 /* RegistrationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegistrationTableViewCell.xib; sourceTree = "<group>"; };
+		BE97D74E27E1379800CAF6A0 /* FacultyCoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyCoursesViewController.swift; sourceTree = "<group>"; };
+		BE97D74F27E1379800CAF6A0 /* FacultyCoursesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FacultyCoursesViewController.xib; sourceTree = "<group>"; };
+		BE97D75327E13A7000CAF6A0 /* FacultyCoursesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyCoursesViewModel.swift; sourceTree = "<group>"; };
+		BE97D75627E13B8300CAF6A0 /* SelectCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCourseViewController.swift; sourceTree = "<group>"; };
+		BE97D75727E13B8300CAF6A0 /* SelectCourseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCourseViewController.xib; sourceTree = "<group>"; };
+		BE97D75B27E1489F00CAF6A0 /* SelectCourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCourseViewModel.swift; sourceTree = "<group>"; };
 		F6E023F203D51B3EB202B8EE /* libPods-MUMSched.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MUMSched.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -222,6 +234,8 @@
 		BE049F9727D555F8009B7C2E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BE97D75527E13AE600CAF6A0 /* SelectCourseViewController */,
+				BE97D74327E129A200CAF6A0 /* FacultyCoursesViewController */,
 				BE97D73627E0E46100CAF6A0 /* RegistrationViewController */,
 				BE97D72927DFD9E500CAF6A0 /* HomeViewController */,
 				BE4FA72927D5C7E700441B99 /* LoginViewController */,
@@ -370,6 +384,42 @@
 			path = RegistrantionTableViewCell;
 			sourceTree = "<group>";
 		};
+		BE97D74327E129A200CAF6A0 /* FacultyCoursesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D75227E13A5C00CAF6A0 /* ViewModel */,
+				BE97D74E27E1379800CAF6A0 /* FacultyCoursesViewController.swift */,
+				BE97D74F27E1379800CAF6A0 /* FacultyCoursesViewController.xib */,
+			);
+			path = FacultyCoursesViewController;
+			sourceTree = "<group>";
+		};
+		BE97D75227E13A5C00CAF6A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D75327E13A7000CAF6A0 /* FacultyCoursesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE97D75527E13AE600CAF6A0 /* SelectCourseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D75A27E1488C00CAF6A0 /* ViewModel */,
+				BE97D75627E13B8300CAF6A0 /* SelectCourseViewController.swift */,
+				BE97D75727E13B8300CAF6A0 /* SelectCourseViewController.xib */,
+			);
+			path = SelectCourseViewController;
+			sourceTree = "<group>";
+		};
+		BE97D75A27E1488C00CAF6A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D75B27E1489F00CAF6A0 /* SelectCourseViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -432,6 +482,7 @@
 				BE97D74227E11F6D00CAF6A0 /* RegistrationTableViewCell.xib in Resources */,
 				BE4FA72D27D5C7FE00441B99 /* LoginViewController.xib in Resources */,
 				BE049F7B27D53956009B7C2E /* LaunchScreen.storyboard in Resources */,
+				BE97D75927E13B8300CAF6A0 /* SelectCourseViewController.xib in Resources */,
 				BE049FAF27D56C1A009B7C2E /* AddCourseViewController.xib in Resources */,
 				BE049F8727D539B6009B7C2E /* CoursesViewController.xib in Resources */,
 				BE049F7827D53956009B7C2E /* Assets.xcassets in Resources */,
@@ -440,6 +491,7 @@
 				BE049F9627D541FB009B7C2E /* CourseTableViewCell.xib in Resources */,
 				BE049F9C27D5561C009B7C2E /* InitialViewController.xib in Resources */,
 				BE049FB327D56F7D009B7C2E /* InputView.xib in Resources */,
+				BE97D75127E1379800CAF6A0 /* FacultyCoursesViewController.xib in Resources */,
 				BE97D72D27DFDDB100CAF6A0 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,9 +532,11 @@
 				BE049FA427D56916009B7C2E /* API.swift in Sources */,
 				BE049F9F27D55B8F009B7C2E /* BaseProtocol.swift in Sources */,
 				BE049F8A27D539E0009B7C2E /* CoursesViewModel.swift in Sources */,
+				BE97D75027E1379800CAF6A0 /* FacultyCoursesViewController.swift in Sources */,
 				BE049F8627D539B6009B7C2E /* CoursesViewController.swift in Sources */,
 				BE97D73027DFDE9600CAF6A0 /* HomeCollectionViewCell.swift in Sources */,
 				BE049F8F27D53F54009B7C2E /* NibRegistrationView.swift in Sources */,
+				BE97D75427E13A7000CAF6A0 /* FacultyCoursesViewModel.swift in Sources */,
 				BE049FB427D56F7D009B7C2E /* InputView.swift in Sources */,
 				BE049F6F27D53954009B7C2E /* AppDelegate.swift in Sources */,
 				BE049FB827D570F2009B7C2E /* UITextFieldPadding.swift in Sources */,
@@ -498,11 +552,13 @@
 				BE049FB627D570C4009B7C2E /* NibDesignable.swift in Sources */,
 				BE049F9527D541FB009B7C2E /* CourseTableViewCell.swift in Sources */,
 				BE049F8D27D53F33009B7C2E /* CellComponent.swift in Sources */,
+				BE97D75827E13B8300CAF6A0 /* SelectCourseViewController.swift in Sources */,
 				BE049FBA27D57D0C009B7C2E /* ViewExtension.swift in Sources */,
 				BE4FA73327D5CB0D00441B99 /* User.swift in Sources */,
 				BE97D73427DFDFBD00CAF6A0 /* HomeViewModel.swift in Sources */,
 				BE049FA127D55C25009B7C2E /* ViewControllerExtension.swift in Sources */,
 				BE97D73D27E0F3FB00CAF6A0 /* RegistrationViewModel.swift in Sources */,
+				BE97D75C27E1489F00CAF6A0 /* SelectCourseViewModel.swift in Sources */,
 				BE4FA73527D5D1F600441B99 /* Course.swift in Sources */,
 				BE049F9127D53F7A009B7C2E /* Utils.swift in Sources */,
 				BE049FA827D56941009B7C2E /* API+Configuration.swift in Sources */,

@@ -11,7 +11,7 @@ enum HomeItem {
     case courses, facultyCourses, blocks, facultyBlocks, users, registration, schedule, logout
     
     static func getItemList() -> [HomeItem] {
-        guard let type = User.current?.role else { return [.logout] }
+        guard let type = User.current?.role else { return [.facultyCourses] }
         switch type {
         case .ADMIN: return [.courses, .blocks, .users, .logout]
         case .FACULTY: return [.courses, .facultyCourses, .facultyBlocks, .schedule, .logout]
@@ -39,6 +39,8 @@ enum HomeItem {
             CoursesViewController.present(in: view, viewModel: CoursesViewModel())
         case .registration:
             RegistrationViewController.present(in: view, viewModel: RegistrationViewModel())
+        case .facultyCourses:
+            FacultyCoursesViewController.present(in: view, viewModel: FacultyCoursesViewModel())
         default: break
         }
     }

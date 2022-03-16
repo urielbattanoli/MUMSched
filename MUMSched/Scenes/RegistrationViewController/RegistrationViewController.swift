@@ -29,7 +29,6 @@ final class RegistrationViewController: UIViewController {
         } else {
             let nav = UINavigationController(rootViewController: view)
             nav.modalPresentationStyle = .fullScreen
-            nav.modalTransitionStyle = .crossDissolve
             controller.present(nav, animated: true)
         }
     }

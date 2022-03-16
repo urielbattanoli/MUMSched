@@ -1,27 +1,26 @@
 //
-//  CoursesViewController.swift
+//  FacultyCourseViewController.swift
 //  MUMSched
 //
-//  Created by Uriel Battanoli on 3/6/22.
+//  Created by Uriel Battanoli on 3/15/22.
 //
 
 import UIKit
 
-protocol CoursesViewDelegate: AnyObject {
+protocol FacultyCoursesViewDelegate: AnyObject {
     
-    var view: CoursesViewModelDelegate? { get set}
+    var view: FacultyCoursesViewModelDelegate? { get set}
     func load()
     func numberOfRowsInSection(_ section: Int) -> Int
     func cellForRow(at indexPath: IndexPath) -> CellComponent?
-    func didSelectRowAt(at indexPath: IndexPath)
+    func saveCourses()
     func addNewCourse()
-    func shouldUpdate()
 }
 
-final class CoursesViewController: UIViewController {
+final class FacultyCoursesViewController: UIViewController {
     
-    static func present(in controller: UIViewController, viewModel: CoursesViewDelegate) {
-        let view = CoursesViewController(viewModel: viewModel)
+    static func present(in controller: UIViewController, viewModel: FacultyCoursesViewDelegate) {
+        let view = FacultyCoursesViewController(viewModel: viewModel)
         viewModel.view = view
         if let nav = controller.navigationController {
             nav.pushViewController(view, animated: true)
@@ -31,12 +30,14 @@ final class CoursesViewController: UIViewController {
             controller.present(nav, animated: true)
         }
     }
-    
+
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var saveBackgroundView: UIView!
+    @IBOutlet private weak var saveButton: UIButton!
     
-    private let viewModel: CoursesViewDelegate
+    private let viewModel: FacultyCoursesViewDelegate
     
-    private init(viewModel: CoursesViewDelegate) {
+    private init(viewModel: FacultyCoursesViewDelegate) {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
@@ -49,9 +50,8 @@ final class CoursesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
-        setupTableView()
         viewModel.load()
+        setupView()
     }
     
     private func setupView() {
@@ -62,19 +62,20 @@ final class CoursesViewController: UIViewController {
                                   action: #selector(addTouched))
         add.tintColor = .black
         navigationItem.rightBarButtonItem = add
+        
+        saveButton.setTitle("Save", for: .normal)
+        setupTableView()
     }
     
     private func setupTableView() {
+        tableView.registerNib(for: RegistrationTableViewCell.self)
+        tableView.dragInteractionEnabled = true
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.registerNib(for: CourseTableViewCell.self)
-        tableView.refreshControl = UIRefreshControl()
-        tableView.refreshControl?.tintColor = .black
-        tableView.refreshControl?.addTarget(self, action: #selector(refresh), for: .valueChanged)
     }
     
-    @objc private func refresh() {
-        viewModel.shouldUpdate()
+    @IBAction private func saveTouched(_ sender: UIButton) {
+        viewModel.saveCourses()
     }
     
     @objc private func addTouched() {
@@ -82,8 +83,16 @@ final class CoursesViewController: UIViewController {
     }
 }
 
+// MARK: - FacultyCoursesViewModelDelegate
+extension FacultyCoursesViewController: FacultyCoursesViewModelDelegate {
+    
+    func update() {
+        tableView.reloadData()
+    }
+}
+
 // MARK: - UITableViewDataSource
-extension CoursesViewController: UITableViewDataSource {
+extension FacultyCoursesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfRowsInSection(section)
@@ -98,20 +107,5 @@ extension CoursesViewController: UITableViewDataSource {
 }
 
 // MARK: - UITableViewDelegate
-extension CoursesViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectRowAt(at: indexPath)
-    }
-}
-
-// MARK: - CoursesViewModelDelegate
-extension CoursesViewController: CoursesViewModelDelegate {
-    
-    func update() {
-        DispatchQueue.main.async {
-            self.tableView.refreshControl?.endRefreshing()
-        }
-        tableView.reloadData()
-    }
+extension FacultyCoursesViewController: UITableViewDelegate {
 }

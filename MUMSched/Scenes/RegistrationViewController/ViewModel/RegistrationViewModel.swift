@@ -7,17 +7,17 @@
 
 import UIKit
 
-protocol RegistrationViewModelDelegate: AnyObject {
+protocol RegistrationViewModelDelegate: BaseProtocolDelegate {
     func reload()
 }
 
 final class RegistrationViewModel: RegistrationViewDelegate {
     
-    var view: RegistrationViewModelDelegate?
+    weak var view: RegistrationViewModelDelegate?
     
     var selected: Int?
     
-    private var courses: [String] = ["SWE", "WAP", "FPP", "MPP", "SWA", "ALG"]
+    private var courses: [Course] = []
     
     func load() {
         
@@ -33,7 +33,7 @@ final class RegistrationViewModel: RegistrationViewDelegate {
     }
     
     func cellForRow(at indexPath: IndexPath) -> CellComponent? {
-        let data = courses[indexPath.row]
+        let data = RegistrationCellVM(showIcon: true, course: courses[indexPath.row])
         return CellComponent(reuseId: RegistrationTableViewCell.reuseId, data: data)
     }
     

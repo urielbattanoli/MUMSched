@@ -7,7 +7,9 @@
 
 import Foundation
 
-final class Course: Codable {
+final class Course: Codable, Equatable {
+    static func == (lhs: Course, rhs: Course) -> Bool { lhs.id == rhs.id }
+    
     let id: Int
     let code: String
     let name: String
