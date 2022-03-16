@@ -38,5 +38,6 @@ final class SelectCourseViewModel: SelectCourseViewDelegate {
     
     func didSelectRow(at indexPath: IndexPath) {
         delegate?.didSelectCourse(courses[indexPath.row])
+        view?.dismiss()
     }
 }

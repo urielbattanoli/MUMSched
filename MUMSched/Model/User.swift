@@ -8,19 +8,21 @@
 import Foundation
 
 enum UserRole: String {
-    case ADMIN, FACULTY, STUDENT, ERROR
+    case ADMIN = "[ROLE_ADMIN]"
+    case FACULTY = "[ROLE_FACULTY]"
+    case STUDENT = "[ROLE_STUDENT]"
+    case ERROR
 }
 
 final class User: Codable {
     
     static var current: User?
     
-    let id: Int
-    let name: String
-    let email: String
-    private let userRole: String
+    let Authorization: String
+    let Username: String
+    private let Roles: String
     
     var role: UserRole {
-        return UserRole(rawValue: userRole) ?? .ERROR
+        return UserRole(rawValue: Roles) ?? .ERROR
     }
 }

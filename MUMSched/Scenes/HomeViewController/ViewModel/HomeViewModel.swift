@@ -11,7 +11,8 @@ enum HomeItem {
     case courses, facultyCourses, blocks, facultyBlocks, users, registration, schedule, logout
     
     static func getItemList() -> [HomeItem] {
-        guard let type = User.current?.role else { return [.facultyCourses] }
+        return [.facultyCourses, .courses, .registration]
+        guard let type = User.current?.role else { return [.facultyCourses, .courses, .registration] }
         switch type {
         case .ADMIN: return [.courses, .blocks, .users, .logout]
         case .FACULTY: return [.courses, .facultyCourses, .facultyBlocks, .schedule, .logout]

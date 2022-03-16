@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoursesViewController" customModule="MUMSched" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BlocksViewController" customModule="MUMSched" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="Pbr-1s-xg5" id="dmS-bM-M4Z"/>
+                <outlet property="tableView" destination="SdI-Rj-jhS" id="zxA-Sl-48s"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Pbr-1s-xg5">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="SdI-Rj-jhS">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
@@ -27,12 +27,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="Pbr-1s-xg5" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="Wpp-xe-Bar"/>
-                <constraint firstItem="Pbr-1s-xg5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eaA-5Z-6Bh"/>
-                <constraint firstAttribute="bottom" secondItem="Pbr-1s-xg5" secondAttribute="bottom" id="jAn-WS-Ap6"/>
-                <constraint firstItem="Pbr-1s-xg5" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="rks-o0-zXu"/>
+                <constraint firstItem="SdI-Rj-jhS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1Wo-dq-fVk"/>
+                <constraint firstAttribute="bottom" secondItem="SdI-Rj-jhS" secondAttribute="bottom" id="UaL-Ju-1ql"/>
+                <constraint firstItem="SdI-Rj-jhS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="ccA-Df-zG8"/>
+                <constraint firstItem="SdI-Rj-jhS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="nsP-Eb-4Qp"/>
             </constraints>
-            <point key="canvasLocation" x="137.68115942028987" y="113.83928571428571"/>
+            <point key="canvasLocation" x="137.68115942028987" y="103.79464285714285"/>
         </view>
     </objects>
     <resources>

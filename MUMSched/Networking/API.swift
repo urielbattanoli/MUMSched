@@ -15,6 +15,10 @@ public enum API<T: Codable> {
     case addCourse
     case updateCourse(id: Int)
     case deleteCourse(id: Int)
+    case listBlocks
+    case addBlock
+    case updateBlock(id: Int)
+    case deleteBlock(id: Int)
 }
 
 public struct MUMError: Codable, Error, LocalizedError {

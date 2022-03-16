@@ -20,7 +20,19 @@ final class RegistrationViewModel: RegistrationViewDelegate {
     private var courses: [Course] = []
     
     func load() {
-        
+        view?.startLoading?(completion: {
+            API<[Course]>.listCourses.request(completion: { [weak self] result in
+                self?.view?.stopLoading?(completion: {
+                    switch result {
+                    case .success(let courses):
+                        self?.courses = courses
+                        self?.view?.reload()
+                    case .failure(let error):
+                        self?.view?.error?(message: error.localizedDescription)
+                    }
+                })
+            })
+        })
     }
     
     func numberOfSections() -> Int {
@@ -40,7 +52,6 @@ final class RegistrationViewModel: RegistrationViewDelegate {
     func moveRow(from: IndexPath, to: IndexPath) {
         let mover = courses.remove(at: from.row)
         courses.insert(mover, at: to.row)
-        print(courses)
     }
     
     func didSelect(section: Int) {

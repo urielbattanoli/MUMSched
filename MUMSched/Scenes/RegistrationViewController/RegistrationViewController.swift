@@ -54,6 +54,7 @@ final class RegistrationViewController: UIViewController {
         title = "Registration"
         saveButton.setTitle("Save", for: .normal)
         setupTableView()
+        viewModel.load()
     }
     
     private func setupTableView() {

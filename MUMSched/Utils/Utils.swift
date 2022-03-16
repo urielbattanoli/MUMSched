@@ -16,4 +16,12 @@ struct Utils {
         }
         return String(str[..<str.index(str.endIndex, offsetBy: -5)])
     }
+    
+    static func formatDate(date: Date?) -> String? {
+        guard let date = date else { return nil }
+        let formatter = DateFormatter()
+        formatter.timeZone = TimeZone.current
+        formatter.dateFormat = "MM/dd/yyyy"
+        return formatter.string(from: date)
+    }
 }

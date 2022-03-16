@@ -57,6 +57,16 @@
 		BE97D75827E13B8300CAF6A0 /* SelectCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D75627E13B8300CAF6A0 /* SelectCourseViewController.swift */; };
 		BE97D75927E13B8300CAF6A0 /* SelectCourseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D75727E13B8300CAF6A0 /* SelectCourseViewController.xib */; };
 		BE97D75C27E1489F00CAF6A0 /* SelectCourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D75B27E1489F00CAF6A0 /* SelectCourseViewModel.swift */; };
+		BE97D76027E26A9D00CAF6A0 /* BlocksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D75E27E26A9D00CAF6A0 /* BlocksViewController.swift */; };
+		BE97D76127E26A9D00CAF6A0 /* BlocksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D75F27E26A9D00CAF6A0 /* BlocksViewController.xib */; };
+		BE97D76427E26DC300CAF6A0 /* BlocksViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D76327E26DC300CAF6A0 /* BlocksViewModel.swift */; };
+		BE97D76927E281EA00CAF6A0 /* AddBlockViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D76727E281EA00CAF6A0 /* AddBlockViewController.swift */; };
+		BE97D76A27E281EA00CAF6A0 /* AddBlockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D76827E281EA00CAF6A0 /* AddBlockViewController.xib */; };
+		BE97D76D27E285A400CAF6A0 /* AddBlockViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D76C27E285A400CAF6A0 /* AddBlockViewModel.swift */; };
+		BE97D76F27E2881500CAF6A0 /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D76E27E2881500CAF6A0 /* Block.swift */; };
+		BE97D77127E2A0D100CAF6A0 /* BlockCourse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D77027E2A0D100CAF6A0 /* BlockCourse.swift */; };
+		BE97D77527E2ACA500CAF6A0 /* BlockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D77327E2ACA500CAF6A0 /* BlockTableViewCell.swift */; };
+		BE97D77627E2ACA500CAF6A0 /* BlockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D77427E2ACA500CAF6A0 /* BlockTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -113,6 +123,16 @@
 		BE97D75627E13B8300CAF6A0 /* SelectCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCourseViewController.swift; sourceTree = "<group>"; };
 		BE97D75727E13B8300CAF6A0 /* SelectCourseViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectCourseViewController.xib; sourceTree = "<group>"; };
 		BE97D75B27E1489F00CAF6A0 /* SelectCourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCourseViewModel.swift; sourceTree = "<group>"; };
+		BE97D75E27E26A9D00CAF6A0 /* BlocksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewController.swift; sourceTree = "<group>"; };
+		BE97D75F27E26A9D00CAF6A0 /* BlocksViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlocksViewController.xib; sourceTree = "<group>"; };
+		BE97D76327E26DC300CAF6A0 /* BlocksViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlocksViewModel.swift; sourceTree = "<group>"; };
+		BE97D76727E281EA00CAF6A0 /* AddBlockViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewController.swift; sourceTree = "<group>"; };
+		BE97D76827E281EA00CAF6A0 /* AddBlockViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddBlockViewController.xib; sourceTree = "<group>"; };
+		BE97D76C27E285A400CAF6A0 /* AddBlockViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBlockViewModel.swift; sourceTree = "<group>"; };
+		BE97D76E27E2881500CAF6A0 /* Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Block.swift; sourceTree = "<group>"; };
+		BE97D77027E2A0D100CAF6A0 /* BlockCourse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCourse.swift; sourceTree = "<group>"; };
+		BE97D77327E2ACA500CAF6A0 /* BlockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTableViewCell.swift; sourceTree = "<group>"; };
+		BE97D77427E2ACA500CAF6A0 /* BlockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlockTableViewCell.xib; sourceTree = "<group>"; };
 		F6E023F203D51B3EB202B8EE /* libPods-MUMSched.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MUMSched.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -234,6 +254,7 @@
 		BE049F9727D555F8009B7C2E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				BE97D76527E281AA00CAF6A0 /* BlocksFlow */,
 				BE97D75527E13AE600CAF6A0 /* SelectCourseViewController */,
 				BE97D74327E129A200CAF6A0 /* FacultyCoursesViewController */,
 				BE97D73627E0E46100CAF6A0 /* RegistrationViewController */,
@@ -324,6 +345,8 @@
 			children = (
 				BE4FA73227D5CB0D00441B99 /* User.swift */,
 				BE4FA73427D5D1F600441B99 /* Course.swift */,
+				BE97D76E27E2881500CAF6A0 /* Block.swift */,
+				BE97D77027E2A0D100CAF6A0 /* BlockCourse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -420,6 +443,61 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BE97D75D27E26A5D00CAF6A0 /* BlocksViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D77227E2AC9000CAF6A0 /* BlockTableViewCell */,
+				BE97D76227E26DAE00CAF6A0 /* ViewModel */,
+				BE97D75E27E26A9D00CAF6A0 /* BlocksViewController.swift */,
+				BE97D75F27E26A9D00CAF6A0 /* BlocksViewController.xib */,
+			);
+			path = BlocksViewController;
+			sourceTree = "<group>";
+		};
+		BE97D76227E26DAE00CAF6A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D76327E26DC300CAF6A0 /* BlocksViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE97D76527E281AA00CAF6A0 /* BlocksFlow */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D76627E281C100CAF6A0 /* AddBlockViewController */,
+				BE97D75D27E26A5D00CAF6A0 /* BlocksViewController */,
+			);
+			path = BlocksFlow;
+			sourceTree = "<group>";
+		};
+		BE97D76627E281C100CAF6A0 /* AddBlockViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D76B27E2859800CAF6A0 /* ViewModel */,
+				BE97D76727E281EA00CAF6A0 /* AddBlockViewController.swift */,
+				BE97D76827E281EA00CAF6A0 /* AddBlockViewController.xib */,
+			);
+			path = AddBlockViewController;
+			sourceTree = "<group>";
+		};
+		BE97D76B27E2859800CAF6A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D76C27E285A400CAF6A0 /* AddBlockViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BE97D77227E2AC9000CAF6A0 /* BlockTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				BE97D77327E2ACA500CAF6A0 /* BlockTableViewCell.swift */,
+				BE97D77427E2ACA500CAF6A0 /* BlockTableViewCell.xib */,
+			);
+			path = BlockTableViewCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -484,14 +562,17 @@
 				BE049F7B27D53956009B7C2E /* LaunchScreen.storyboard in Resources */,
 				BE97D75927E13B8300CAF6A0 /* SelectCourseViewController.xib in Resources */,
 				BE049FAF27D56C1A009B7C2E /* AddCourseViewController.xib in Resources */,
+				BE97D77627E2ACA500CAF6A0 /* BlockTableViewCell.xib in Resources */,
 				BE049F8727D539B6009B7C2E /* CoursesViewController.xib in Resources */,
 				BE049F7827D53956009B7C2E /* Assets.xcassets in Resources */,
 				BE97D73A27E0E47C00CAF6A0 /* RegistrationViewController.xib in Resources */,
 				BE97D73127DFDE9600CAF6A0 /* HomeCollectionViewCell.xib in Resources */,
 				BE049F9627D541FB009B7C2E /* CourseTableViewCell.xib in Resources */,
+				BE97D76127E26A9D00CAF6A0 /* BlocksViewController.xib in Resources */,
 				BE049F9C27D5561C009B7C2E /* InitialViewController.xib in Resources */,
 				BE049FB327D56F7D009B7C2E /* InputView.xib in Resources */,
 				BE97D75127E1379800CAF6A0 /* FacultyCoursesViewController.xib in Resources */,
+				BE97D76A27E281EA00CAF6A0 /* AddBlockViewController.xib in Resources */,
 				BE97D72D27DFDDB100CAF6A0 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,15 +618,21 @@
 				BE97D73027DFDE9600CAF6A0 /* HomeCollectionViewCell.swift in Sources */,
 				BE049F8F27D53F54009B7C2E /* NibRegistrationView.swift in Sources */,
 				BE97D75427E13A7000CAF6A0 /* FacultyCoursesViewModel.swift in Sources */,
+				BE97D77527E2ACA500CAF6A0 /* BlockTableViewCell.swift in Sources */,
 				BE049FB427D56F7D009B7C2E /* InputView.swift in Sources */,
 				BE049F6F27D53954009B7C2E /* AppDelegate.swift in Sources */,
 				BE049FB827D570F2009B7C2E /* UITextFieldPadding.swift in Sources */,
+				BE97D76927E281EA00CAF6A0 /* AddBlockViewController.swift in Sources */,
+				BE97D76D27E285A400CAF6A0 /* AddBlockViewModel.swift in Sources */,
 				BE049FBF27D5B289009B7C2E /* AddCourseViewModel.swift in Sources */,
 				BE049FAA27D56941009B7C2E /* API+Request.swift in Sources */,
 				BE97D72C27DFDDB100CAF6A0 /* HomeViewController.swift in Sources */,
+				BE97D76F27E2881500CAF6A0 /* Block.swift in Sources */,
 				BE97D74127E11F6D00CAF6A0 /* RegistrationTableViewCell.swift in Sources */,
 				BE4FA72C27D5C7FE00441B99 /* LoginViewController.swift in Sources */,
 				BE049FAE27D56C1A009B7C2E /* AddCourseViewController.swift in Sources */,
+				BE97D76027E26A9D00CAF6A0 /* BlocksViewController.swift in Sources */,
+				BE97D77127E2A0D100CAF6A0 /* BlockCourse.swift in Sources */,
 				BE049F9B27D5561C009B7C2E /* InitialViewController.swift in Sources */,
 				BE049FA927D56941009B7C2E /* API+Requester.swift in Sources */,
 				BE049FBC27D57D44009B7C2E /* StringExtension.swift in Sources */,
@@ -558,6 +645,7 @@
 				BE97D73427DFDFBD00CAF6A0 /* HomeViewModel.swift in Sources */,
 				BE049FA127D55C25009B7C2E /* ViewControllerExtension.swift in Sources */,
 				BE97D73D27E0F3FB00CAF6A0 /* RegistrationViewModel.swift in Sources */,
+				BE97D76427E26DC300CAF6A0 /* BlocksViewModel.swift in Sources */,
 				BE97D75C27E1489F00CAF6A0 /* SelectCourseViewModel.swift in Sources */,
 				BE4FA73527D5D1F600441B99 /* Course.swift in Sources */,
 				BE049F9127D53F7A009B7C2E /* Utils.swift in Sources */,

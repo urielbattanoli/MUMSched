@@ -48,8 +48,18 @@ extension API {
             
             return .failure(MUMError.unknown)
         case .failure(let error):
-            if statusCode == 200, let obj = EmptyResult() as? T {
-                return .success(obj)
+            if statusCode == 200 {
+                if let obj = EmptyResult() as? T {
+                    return .success(obj)
+                } else if User.self is T.Type, let headers = response.response?.allHeaderFields {
+                    do {
+                        let data = try JSONSerialization.data(withJSONObject: headers, options: .prettyPrinted)
+                        let object = try decoder.decode(T.self, from: data)
+                        return .success(object)
+                    } catch {
+                        print("Error to decode")
+                    }
+                }
             }
             return .failure(error)
         }

@@ -160,3 +160,43 @@ private extension String {
         return allNumbers
     }
 }
+
+extension UITextField {
+    
+    func addDoneButtonOnKeyboard(selector: (Any?, Selector)? = nil, showCancel: Bool = false) {
+        let frame = CGRect.init(x: 0,
+                                y: 0,
+                                width: UIScreen.main.bounds.width,
+                                height: 50)
+        let doneToolbar = UIToolbar(frame: frame)
+        doneToolbar.barStyle = .default
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                        target: nil,
+                                        action: nil)
+
+        let done = UIBarButtonItem(title: "Done",
+                                   style: .done,
+                                   target: selector?.0 ?? self,
+                                   action: selector?.1 ?? #selector(self.doneButtonAction))
+        done.tintColor = .black
+        var items: [UIBarButtonItem] = []
+        if showCancel {
+            let cancel = UIBarButtonItem(title: "Cancel",
+                                       style: .plain,
+                                       target: self,
+                                       action: #selector(self.doneButtonAction))
+            cancel.tintColor = .black
+            items.append(cancel)
+        }
+        items += [flexSpace, done]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.inputAccessoryView = doneToolbar
+    }
+    
+    @objc private func doneButtonAction() {
+        self.resignFirstResponder()
+    }
+}

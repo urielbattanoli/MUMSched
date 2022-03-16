@@ -65,7 +65,7 @@ final class FacultyCoursesViewModel: FacultyCoursesViewDelegate {
         let courses = allCourses.filter { !selectedCourses.contains($0) }
         let viewModel = SelectCourseViewModel(courses: courses,
                                               delegate: self)
-        SelectCourseViewController.present(in: view,
+        SelectCourseViewController.present(in: view.navigationController ?? view,
                                            viewModel: viewModel)
     }
 }

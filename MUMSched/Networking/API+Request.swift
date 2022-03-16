@@ -22,14 +22,16 @@ extension API {
         case .login: return "login"
         case .listCourses, .addCourse: return "courses"
         case .updateCourse(let id), .deleteCourse(let id): return "courses/\(id)"
+        case .listBlocks, .addBlock: return "blocks"
+        case .updateBlock(let id), .deleteBlock(let id): return "blocks/\(id)"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .listCourses: return .get
-        case .deleteCourse: return .delete
-        case .updateCourse: return .put
+        case .listCourses, .listBlocks: return .get
+        case .deleteCourse, .deleteBlock: return .delete
+        case .updateCourse, .updateBlock: return .put
         default: return .post
         }
     }
@@ -41,22 +43,10 @@ extension API {
     }
     
     var headers: HTTPHeaders {
-//        var headers: HTTPHeaders = [
-//            "Content-Type": "application/json",
-//            "X-Parse-Application-Id": API.headerApplicationId,
-//            "X-Parse-REST-API-Key": API.headerRestAPIKey
-//        ]
-//        
-//        if let token = User.current?.sessionToken {
-//            headers["X-Parse-Session-Token"] = token
-//        }
-//        if let id = Profile.current?.objectId {
-//            headers["selected-profile-id"] = id
-//        }
-//        if let id = Defaults.shared.installationId {
-//            headers["X-Parse-Installation-Id"] = id
-//        }
-        
-        return [:]
+        var headers: HTTPHeaders = [:]
+        if let token = User.current?.Authorization {
+            headers["Authorization"] = token
+        }
+        return headers
     }
 }

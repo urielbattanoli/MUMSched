@@ -16,10 +16,10 @@ final class InitialViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        if User.current == nil {
-//            LoginViewController.present(in: self, viewModel: LoginViewModel())
-//        } else {
+        if User.current == nil {
+            LoginViewController.present(in: self, viewModel: LoginViewModel())
+        } else {
             HomeViewController.present(in: self, viewModel: HomeViewModel())
-//        }
+        }
     }
 }

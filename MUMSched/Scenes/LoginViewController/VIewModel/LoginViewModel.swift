@@ -36,7 +36,7 @@ final class LoginViewModel: LoginViewDelegate {
             return false
         }
         guard password.isValidPassword() else {
-            view?.showPasswordErrorMessage("Weak password")
+            view?.showPasswordErrorMessage("Invalid password")
             return false
         }
         return true

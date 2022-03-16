@@ -32,7 +32,6 @@ final class CoursesViewModel: CoursesViewDelegate {
                 })
             })
         })
-        view?.update?()
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {

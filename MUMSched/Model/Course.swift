@@ -13,4 +13,6 @@ final class Course: Codable, Equatable {
     let id: Int
     let code: String
     let name: String
+    let description: String
+    let preRequisites: [String]
 }

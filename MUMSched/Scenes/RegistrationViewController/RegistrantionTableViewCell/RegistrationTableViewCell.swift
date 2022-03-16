@@ -25,6 +25,7 @@ final class RegistrationTableViewCell: NibRegistrableTableViewCell {
     @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var codeLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var addImageView: UIImageView!
     @IBOutlet private weak var deleteButton: UIButton!
     
     private var deleteAction: (() -> Void)?
@@ -44,5 +45,6 @@ extension RegistrationTableViewCell: DynamicCellComponent {
         titleLabel.text = data.course.name
         deleteButton.isHidden = data.deleteAction == nil
         deleteAction = data.deleteAction
+        addImageView.isHidden = data.showIcon || data.deleteAction != nil
     }
 }
