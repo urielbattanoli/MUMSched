@@ -40,7 +40,7 @@ final class AddBlockViewModel: AddBlockViewDelegate {
                 view?.showNameError()
                 return false
             }
-            if startDate != nil {
+            if startDate == nil {
                 view?.showStartDateError()
                 return false
             }

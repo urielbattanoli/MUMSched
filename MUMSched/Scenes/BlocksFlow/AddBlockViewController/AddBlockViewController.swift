@@ -65,8 +65,8 @@ final class AddBlockViewController: UIViewController {
         sendButton.setTitle(viewModel.sendButtonTitle, for: .normal)
         deleteButton.isHidden = !viewModel.showDelete
         
-        nameInputView.headerLabel.text = "Course Name"
-        nameInputView.textField.placeholder = "Type the course name"
+        nameInputView.headerLabel.text = "Block Name"
+        nameInputView.textField.placeholder = "ex: Block 1"
         nameInputView.text = viewModel.name
         nameInputView.textChanged = { [weak self] in self?.nameTextChanged() }
         
@@ -100,6 +100,8 @@ final class AddBlockViewController: UIViewController {
         let date = sender.date
         viewModel.startDate = date
         startDateInputView.text = Utils.formatDate(date: date)
+        startDateInputView.hideErrorMessage()
+        changeButtonState()
     }
     
     private func changeButtonState() {
