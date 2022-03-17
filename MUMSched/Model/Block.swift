@@ -11,11 +11,10 @@ final class Block: Codable, Equatable {
     static func == (lhs: Block, rhs: Block) -> Bool { lhs.id == rhs.id }
     
     let id: Int
-    let name: String
     private let startDate: String
-    let blockCourse: [BlockCourse]?
+    let blockCourses: [BlockCourse]?
     
     var start: Date {
-        return Date()//(timeIntervalSince1970: startDate)
+        return Utils.formatter().date(from: startDate) ?? Date()
     }
 }

@@ -24,12 +24,13 @@ extension API {
         case .updateCourse(let id), .deleteCourse(let id): return "courses/\(id)"
         case .listBlocks, .addBlock: return "blocks"
         case .updateBlock(let id), .deleteBlock(let id): return "blocks/\(id)"
+        case .listUsers: return "users"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .listCourses, .listBlocks: return .get
+        case .listCourses, .listBlocks, .listUsers: return .get
         case .deleteCourse, .deleteBlock: return .delete
         case .updateCourse, .updateBlock: return .put
         default: return .post
@@ -38,6 +39,7 @@ extension API {
     
     var encoding: ParameterEncoding {
         switch self {
+        case .listUsers: return URLEncoding.default
         default: return JSONEncoding.default
         }
     }

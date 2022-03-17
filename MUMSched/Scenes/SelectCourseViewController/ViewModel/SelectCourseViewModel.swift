@@ -18,6 +18,7 @@ protocol SelectCourseViewModelDelegate: BaseProtocolDelegate {
 final class SelectCourseViewModel: SelectCourseViewDelegate {
     
     weak var view: SelectCourseViewModelDelegate?
+    var title: String { return "Select Course" }
     
     private var delegate: SelectCourseDelegate?
     private let courses: [Course]
@@ -32,8 +33,8 @@ final class SelectCourseViewModel: SelectCourseViewDelegate {
     }
     
     func cellForRow(at indexPath: IndexPath) -> CellComponent? {
-        let data = RegistrationCellVM(showIcon: false, course: courses[indexPath.row])
-        return CellComponent(reuseId: RegistrationTableViewCell.reuseId, data: data)
+        let data = SelectCourseCellVM(course: courses[indexPath.row])
+        return CellComponent(reuseId: SelectCourseTableViewCell.reuseId, data: data)
     }
     
     func didSelectRow(at indexPath: IndexPath) {

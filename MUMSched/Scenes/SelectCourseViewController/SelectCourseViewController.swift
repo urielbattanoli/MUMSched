@@ -9,7 +9,8 @@ import UIKit
 
 protocol SelectCourseViewDelegate: AnyObject {
     
-    var view: SelectCourseViewModelDelegate? { get set}
+    var view: SelectCourseViewModelDelegate? { get set }
+    var title: String { get }
     func numberOfRowsInSection(_ section: Int) -> Int
     func cellForRow(at indexPath: IndexPath) -> CellComponent?
     func didSelectRow(at indexPath: IndexPath)
@@ -45,13 +46,12 @@ final class SelectCourseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Select Course"
+        title = viewModel.title
         setupTableView()
     }
     
     private func setupTableView() {
-        tableView.registerNib(for: RegistrationTableViewCell.self)
-        tableView.dragInteractionEnabled = true
+        tableView.registerNib(for: SelectCourseTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
     }

@@ -17,11 +17,30 @@ struct Utils {
         return String(str[..<str.index(str.endIndex, offsetBy: -5)])
     }
     
-    static func formatDate(date: Date?) -> String? {
-        guard let date = date else { return nil }
+    static func formatter() -> DateFormatter {
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
-        formatter.dateFormat = "MM/dd/yyyy"
-        return formatter.string(from: date)
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter
+    }
+    
+    static func formatDate(date: Date?) -> String? {
+        guard let date = date else { return nil }
+        return formatter().string(from: date)
+    }
+}
+
+extension Encodable {
+    
+    public func toDictionary() -> [String: Any] {
+        do {
+            let data = try JSONEncoder().encode(self)
+            let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            return json as? [String: Any] ?? [:]
+        } catch (let error) {
+            print(Self.self)
+            print(error)
+        }
+        return [:]
     }
 }

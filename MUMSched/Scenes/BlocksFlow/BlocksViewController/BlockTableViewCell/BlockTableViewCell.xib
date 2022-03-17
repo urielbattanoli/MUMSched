@@ -17,17 +17,17 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W1A-qD-RJ8">
-                        <rect key="frame" x="16" y="8" width="338" height="122"/>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                        <rect key="frame" x="16" y="16" width="338" height="106"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="W1A-qD-RJ8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="6jQ-ZZ-vqP"/>
-                    <constraint firstItem="W1A-qD-RJ8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="9lz-FQ-7H2"/>
+                    <constraint firstItem="W1A-qD-RJ8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="9lz-FQ-7H2"/>
                     <constraint firstAttribute="trailing" secondItem="W1A-qD-RJ8" secondAttribute="trailing" constant="16" id="Q6m-Gg-ARF"/>
-                    <constraint firstAttribute="bottom" secondItem="W1A-qD-RJ8" secondAttribute="bottom" constant="8" id="zp2-8Q-o4j"/>
+                    <constraint firstAttribute="bottom" secondItem="W1A-qD-RJ8" secondAttribute="bottom" constant="16" id="zp2-8Q-o4j"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

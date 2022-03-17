@@ -18,6 +18,6 @@ extension BlockTableViewCell: DynamicCellComponent {
     func updateUI(with data: Any?) {
         guard let data = data as? Block else { return }
         let start = Utils.formatDate(date: data.start) ?? ""
-        titleLabel.text = data.name + " - " + "Starts on \(start)"
+        titleLabel.text = "Block \(data.id)" + " - " + "Starts on \(start)"
     }
 }

@@ -14,7 +14,7 @@ protocol BlocksViewModelDelegate: BaseProtocolDelegate {
 
 final class BlocksViewModel: BlocksViewDelegate {
     
-    var view: BlocksViewModelDelegate?
+    weak var view: BlocksViewModelDelegate?
     
     private var blocks: [Block] = []
     

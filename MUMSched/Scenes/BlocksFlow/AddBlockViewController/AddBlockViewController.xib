@@ -14,6 +14,7 @@
                 <outlet property="nameInputView" destination="ctA-AC-RqH" id="r9f-oH-QJx"/>
                 <outlet property="sendButton" destination="OKO-ne-8GX" id="fc0-iG-rcA"/>
                 <outlet property="startDateInputView" destination="LYK-pc-ZDF" id="NeI-HL-dO5"/>
+                <outlet property="tableView" destination="n9k-lJ-ydo" id="s85-xI-HV8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -75,15 +76,52 @@
                         <constraint firstAttribute="trailing" secondItem="58d-uU-djQ" secondAttribute="trailing" constant="16" id="Otb-aF-ya0"/>
                     </constraints>
                 </view>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="pP3-6H-Eu4">
+                    <rect key="frame" x="16" y="154" width="382" height="640"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mez-aB-gnv">
+                            <rect key="frame" x="0.0" y="0.0" width="382" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Courses Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2cJ-MZ-9C7">
+                                    <rect key="frame" x="0.0" y="0.0" width="338" height="44"/>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbx-Ru-nz0">
+                                    <rect key="frame" x="338" y="0.0" width="44" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="44" id="74W-Xz-Pho"/>
+                                        <constraint firstAttribute="height" constant="44" id="NQm-et-kao"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="plus" catalog="system"/>
+                                    <connections>
+                                        <action selector="addCourseTouched:" destination="-1" eventType="touchUpInside" id="Bs2-op-YLY"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="n9k-lJ-ydo">
+                            <rect key="frame" x="0.0" y="44" width="382" height="596"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        </tableView>
+                    </subviews>
+                </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="LYK-pc-ZDF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="2bt-jZ-0Dv"/>
+                <constraint firstItem="pP3-6H-Eu4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="3X9-Xh-fHR"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pP3-6H-Eu4" secondAttribute="trailing" constant="16" id="72L-gI-yqK"/>
                 <constraint firstAttribute="bottom" secondItem="XpL-AY-Y4d" secondAttribute="bottom" id="9Cn-ok-I3R"/>
                 <constraint firstItem="ctA-AC-RqH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="16" id="BIm-4b-Kkp"/>
+                <constraint firstItem="XpL-AY-Y4d" firstAttribute="top" secondItem="pP3-6H-Eu4" secondAttribute="bottom" id="Kfh-3E-qob"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="LYK-pc-ZDF" secondAttribute="trailing" constant="16" id="KmI-Sg-gWl"/>
                 <constraint firstItem="XpL-AY-Y4d" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="L8I-fz-L9B"/>
+                <constraint firstItem="pP3-6H-Eu4" firstAttribute="top" secondItem="LYK-pc-ZDF" secondAttribute="bottom" constant="16" id="QL1-lh-HO0"/>
                 <constraint firstItem="LYK-pc-ZDF" firstAttribute="leading" secondItem="ctA-AC-RqH" secondAttribute="trailing" constant="16" id="XOh-IH-AED"/>
                 <constraint firstItem="XpL-AY-Y4d" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="d6n-dE-N7J"/>
                 <constraint firstItem="ctA-AC-RqH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="ety-Ng-Yb7"/>
@@ -92,6 +130,7 @@
         </view>
     </objects>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum UserRole: String {
-    case ADMIN = "[ROLE_ADMIN]"
-    case FACULTY = "[ROLE_FACULTY]"
-    case STUDENT = "[ROLE_STUDENT]"
-    case ERROR
+enum UserRole: Int {
+    case ADMIN = 1
+    case FACULTY = 2
+    case STUDENT = 3
+    case ERROR = -1
 }
 
 final class User: Codable {
@@ -23,6 +23,7 @@ final class User: Codable {
     private let Roles: String
     
     var role: UserRole {
-        return UserRole(rawValue: Roles) ?? .ERROR
+        let role = Roles.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")
+        return UserRole(rawValue: Int(role) ?? -1) ?? .ERROR
     }
 }

@@ -12,6 +12,21 @@ final class BlockCourse: Codable, Equatable {
     
     let id: Int
     let course: Course
-    let capacity: Int
-    let faculty: String
+    let availableSeats: Int
+    let faculty: Faculty
+}
+
+final class BlockCourseCreation: Codable {
+    
+    let courseId: Int
+    let availableSeats: Int
+    let facultyId: Int
+    let blockId: Int
+    
+    init(courseId: Int, capacity: Int, facultyId: Int, blockId: Int) {
+        self.courseId = courseId
+        self.availableSeats = capacity
+        self.facultyId = facultyId
+        self.blockId = blockId
+    }
 }

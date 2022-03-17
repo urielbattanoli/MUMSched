@@ -19,6 +19,9 @@ protocol AddBlockViewDelegate: AnyObject {
     func isValid(showError: Bool) -> Bool
     func sendTouched()
     func deleteTouched()
+    func numberOfRowsInSection(_ section: Int) -> Int
+    func cellForRow(at indexPath: IndexPath) -> CellComponent?
+    func addCourseTouched()
 }
 
 final class AddBlockViewController: UIViewController {
@@ -38,6 +41,7 @@ final class AddBlockViewController: UIViewController {
     @IBOutlet private weak var startDateInputView: InputView!
     @IBOutlet private weak var sendButton: UIButton!
     @IBOutlet private weak var deleteButton: UIButton!
+    @IBOutlet private weak var tableView: UITableView!
     
     private let viewModel: AddBlockViewDelegate
     private lazy var startDatePickerView = UIDatePicker()
@@ -58,6 +62,13 @@ final class AddBlockViewController: UIViewController {
         
         setupView()
         changeButtonState()
+        setupTableView()
+    }
+    
+    private func setupTableView() {
+        tableView.registerNib(for: BlockCourseTableViewCell.self)
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func setupView() {
@@ -116,6 +127,10 @@ final class AddBlockViewController: UIViewController {
     @IBAction private func deleteTouched(_ sender: UIButton) {
         viewModel.deleteTouched()
     }
+    
+    @IBAction private func addCourseTouched(_ sender: UIButton) {
+        viewModel.addCourseTouched()
+    }
 }
 
 // MARK: - AddBlockViewModelDelegate
@@ -128,4 +143,27 @@ extension AddBlockViewController: AddBlockViewModelDelegate {
     func showNameError() {
         nameInputView.showErrorMessage("Required")
     }
+    
+    func reloadTableView() {
+        tableView.reloadData()
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension AddBlockViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRowsInSection(section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cellComp = viewModel.cellForRow(at: indexPath) else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellComp.reuseId, for: indexPath)
+        (cell as? DynamicCellComponent)?.updateUI(with: cellComp.data)
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension AddBlockViewController: UITableViewDelegate {
 }
