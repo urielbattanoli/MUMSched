@@ -77,6 +77,7 @@
 		BE97D79327E302ED00CAF6A0 /* BlockCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D79127E302ED00CAF6A0 /* BlockCourseTableViewCell.swift */; };
 		BE97D79427E302ED00CAF6A0 /* BlockCourseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE97D79227E302ED00CAF6A0 /* BlockCourseTableViewCell.xib */; };
 		BE97D79627E33DB400CAF6A0 /* FacultyCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D79527E33DB400CAF6A0 /* FacultyCourses.swift */; };
+		BE97D79827E36EBD00CAF6A0 /* Registration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE97D79727E36EBD00CAF6A0 /* Registration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -153,6 +154,7 @@
 		BE97D79127E302ED00CAF6A0 /* BlockCourseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockCourseTableViewCell.swift; sourceTree = "<group>"; };
 		BE97D79227E302ED00CAF6A0 /* BlockCourseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlockCourseTableViewCell.xib; sourceTree = "<group>"; };
 		BE97D79527E33DB400CAF6A0 /* FacultyCourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacultyCourses.swift; sourceTree = "<group>"; };
+		BE97D79727E36EBD00CAF6A0 /* Registration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Registration.swift; sourceTree = "<group>"; };
 		F6E023F203D51B3EB202B8EE /* libPods-MUMSched.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MUMSched.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -369,6 +371,7 @@
 				BE97D77027E2A0D100CAF6A0 /* BlockCourse.swift */,
 				BE97D78727E2F73100CAF6A0 /* Faculty.swift */,
 				BE97D79527E33DB400CAF6A0 /* FacultyCourses.swift */,
+				BE97D79727E36EBD00CAF6A0 /* Registration.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -722,6 +725,7 @@
 				BE97D78027E2EFAB00CAF6A0 /* AddBlockCourseViewController.swift in Sources */,
 				BE049F9127D53F7A009B7C2E /* Utils.swift in Sources */,
 				BE049FA827D56941009B7C2E /* API+Configuration.swift in Sources */,
+				BE97D79827E36EBD00CAF6A0 /* Registration.swift in Sources */,
 				BE97D73927E0E47C00CAF6A0 /* RegistrationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

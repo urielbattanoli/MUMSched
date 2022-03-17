@@ -17,15 +17,15 @@ final class RegistrationViewModel: RegistrationViewDelegate {
     
     var selected: Int?
     
-    private var blocks: [Block] = []
+    private var registration: Registration?
     
     func load() {
         view?.startLoading?(completion: {
-            API<[Block]>.listBlocks.request(completion: { [weak self] result in
+            API<Registration>.getRegistration.request(completion: { [weak self] result in
                 self?.view?.stopLoading?(completion: {
                     switch result {
-                    case .success(let blocks):
-                        self?.blocks = blocks
+                    case .success(let registration):
+                        self?.registration = registration
                         self?.view?.reload()
                     case .failure(let error):
                         self?.view?.error?(message: error.localizedDescription)
@@ -36,26 +36,33 @@ final class RegistrationViewModel: RegistrationViewDelegate {
     }
     
     func titleForSection(_ section: Int) -> String {
-        return "Block \(blocks[section].id)"
+        return "Block \(registration?.blocks[section].blockId ?? 0)"
     }
     
     func numberOfSections() -> Int {
-        return blocks.count
+        return registration?.blocks.count ?? 0
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {
 //        guard selected == section else { return 0 }
-        return blocks[section].blockCourses?.count ?? 0
+        return registration?.blocks[section].coursePriorities.count ?? 0
     }
     
     func cellForRow(at indexPath: IndexPath) -> CellComponent? {
-        guard let data = blocks[indexPath.section].blockCourses?[indexPath.row] else { return nil }
-        return CellComponent(reuseId: RegistrationTableViewCell.reuseId, data: data)
+        guard let data = registration?.blocks[indexPath.section].coursePriorities[indexPath.row] else { return nil }
+        return CellComponent(reuseId: RegistrationTableViewCell.reuseId, data: data.blockCourse)
     }
     
     func moveRow(from: IndexPath, to: IndexPath) {
-//        let mover = blocks[from.section].blockCourses?.remove(at: from.row)
-//        blocks[to.section].blockCourses?.insert(mover, at: to.row)
+        guard let mover = registration?.blocks[from.section].coursePriorities.remove(at: from.row) else { return }
+        registration?.blocks[to.section].coursePriorities.insert(mover, at: to.row)
+        updatePriority(section: from.section)
+    }
+    
+    private func updatePriority(section: Int) {
+        for i in 1..<(registration?.blocks[section].coursePriorities.count ?? 0) + 1 {
+            registration?.blocks[section].coursePriorities[i-1].priority = i
+        }
     }
     
     func didSelect(section: Int) {
@@ -63,7 +70,30 @@ final class RegistrationViewModel: RegistrationViewDelegate {
         view?.reload()
     }
     
+    private func params() -> JSON? {
+        guard let blocks = registration?.blocks else { return nil }
+        return ["blocks": blocks.map { ["blockId": $0.blockId,
+                                        "coursePriorities": $0.coursePriorities.map { c in ["priority": c.priority,
+                                                                                            "blockCourseId": c.blockCourse.id] }]}]
+    }
+    
     func saveRegistration() {
-        
+        guard let params = params() else { return }
+        view?.startLoading?(completion: {
+            API<EmptyResult>.saveRegistration.request(params: params, completion: { [weak self] result in
+                self?.view?.stopLoading?(completion: {
+                    switch result {
+                    case .success:
+                        self?.view?.showSimpleAlertController("Success",
+                                                              message: "Registration saved!",
+                                                              actions: nil,
+                                                              cancel: false,
+                                                              style: .alert)
+                    case .failure(let error):
+                        self?.view?.error?(message: error.localizedDescription)
+                    }
+                })
+            })
+        })
     }
 }

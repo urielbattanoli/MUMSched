@@ -22,6 +22,8 @@ public enum API<T: Codable> {
     case listUsers
     case facultyCourses
     case saveFacultyCourses
+    case getRegistration
+    case saveRegistration
 }
 
 public struct MUMError: Codable, Error, LocalizedError {
