@@ -160,10 +160,9 @@ final class AddCourseViewModel: AddCourseViewDelegate {
     
     func cellForRow(at indexPath: IndexPath) -> CellComponent? {
         let course = prerequisites[indexPath.row]
-        let data = RegistrationCellVM(showIcon: false,
-                                      course: course,
+        let data = SelectCourseCellVM(course: course,
                                       deleteAction: deleteTouched(course: course))
-        return CellComponent(reuseId: RegistrationTableViewCell.reuseId, data: data)
+        return CellComponent(reuseId: SelectCourseTableViewCell.reuseId, data: data)
     }
     
     private func deleteTouched(course: Course) -> () -> Void {

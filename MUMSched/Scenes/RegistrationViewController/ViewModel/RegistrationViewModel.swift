@@ -17,15 +17,15 @@ final class RegistrationViewModel: RegistrationViewDelegate {
     
     var selected: Int?
     
-    private var courses: [Course] = []
+    private var blocks: [Block] = []
     
     func load() {
         view?.startLoading?(completion: {
-            API<[Course]>.listCourses.request(completion: { [weak self] result in
+            API<[Block]>.listBlocks.request(completion: { [weak self] result in
                 self?.view?.stopLoading?(completion: {
                     switch result {
-                    case .success(let courses):
-                        self?.courses = courses
+                    case .success(let blocks):
+                        self?.blocks = blocks
                         self?.view?.reload()
                     case .failure(let error):
                         self?.view?.error?(message: error.localizedDescription)
@@ -35,23 +35,27 @@ final class RegistrationViewModel: RegistrationViewDelegate {
         })
     }
     
+    func titleForSection(_ section: Int) -> String {
+        return "Block \(blocks[section].id)"
+    }
+    
     func numberOfSections() -> Int {
-        return 4
+        return blocks.count
     }
     
     func numberOfRowsInSection(_ section: Int) -> Int {
 //        guard selected == section else { return 0 }
-        return courses.count
+        return blocks[section].blockCourses?.count ?? 0
     }
     
     func cellForRow(at indexPath: IndexPath) -> CellComponent? {
-        let data = RegistrationCellVM(showIcon: true, course: courses[indexPath.row])
+        guard let data = blocks[indexPath.section].blockCourses?[indexPath.row] else { return nil }
         return CellComponent(reuseId: RegistrationTableViewCell.reuseId, data: data)
     }
     
     func moveRow(from: IndexPath, to: IndexPath) {
-        let mover = courses.remove(at: from.row)
-        courses.insert(mover, at: to.row)
+//        let mover = blocks[from.section].blockCourses?.remove(at: from.row)
+//        blocks[to.section].blockCourses?.insert(mover, at: to.row)
     }
     
     func didSelect(section: Int) {

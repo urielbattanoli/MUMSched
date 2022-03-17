@@ -20,7 +20,12 @@ final class User: Codable {
     
     let Authorization: String
     let Username: String
+    let Userid: String
     private let Roles: String
+    
+    var id: Int {
+        return Int(Userid) ?? -1
+    }
     
     var role: UserRole {
         let role = Roles.replacingOccurrences(of: "[", with: "").replacingOccurrences(of: "]", with: "")

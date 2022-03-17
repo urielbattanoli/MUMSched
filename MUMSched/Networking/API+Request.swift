@@ -25,14 +25,16 @@ extension API {
         case .listBlocks, .addBlock: return "blocks"
         case .updateBlock(let id), .deleteBlock(let id): return "blocks/\(id)"
         case .listUsers: return "users"
+        case .facultyCourses: return "users/faculty/courses"
+        case .saveFacultyCourses: return "users/faculty/courses"
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .listCourses, .listBlocks, .listUsers: return .get
+        case .listCourses, .listBlocks, .listUsers, .facultyCourses: return .get
         case .deleteCourse, .deleteBlock: return .delete
-        case .updateCourse, .updateBlock: return .put
+        case .updateCourse, .updateBlock, .saveFacultyCourses: return .put
         default: return .post
         }
     }

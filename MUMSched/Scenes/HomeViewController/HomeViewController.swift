@@ -48,6 +48,7 @@ final class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "MUMSched"
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.registerNib(for: HomeCollectionViewCell.self)

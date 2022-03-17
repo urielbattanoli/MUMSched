@@ -11,7 +11,6 @@ enum HomeItem {
     case courses, facultyCourses, blocks, facultyBlocks, users, registration, schedule, logout
     
     static func getItemList() -> [HomeItem] {
-        return [.facultyCourses, .courses, .registration, .blocks, .logout]
         guard let type = User.current?.role else { return [.facultyCourses, .courses, .registration] }
         switch type {
         case .ADMIN: return [.courses, .blocks, .users, .logout]
@@ -23,14 +22,14 @@ enum HomeItem {
     
     var cellData: HomeCellData {
         switch self {
-        case .courses: return HomeCellData(title: "Courses", icon: .checkmark)
-        case .facultyCourses: return HomeCellData(title: "Manage", icon: .checkmark)
-        case .blocks: return HomeCellData(title: "Blocks", icon: .checkmark)
-        case .facultyBlocks: return HomeCellData(title: "Blocks", icon: .checkmark)
-        case .users: return HomeCellData(title: "Users", icon: .checkmark)
-        case .registration: return HomeCellData(title: "Registration", icon: .checkmark)
-        case .schedule: return HomeCellData(title: "Schedule", icon: .checkmark)
-        case .logout: return HomeCellData(title: "Log Out", icon: .checkmark)
+        case .courses: return HomeCellData(title: "Courses", icon: #imageLiteral(resourceName: "course"))
+        case .facultyCourses: return HomeCellData(title: "Courses Preferences", icon: #imageLiteral(resourceName: "course"))
+        case .blocks: return HomeCellData(title: "Blocks", icon: #imageLiteral(resourceName: "blocks"))
+        case .facultyBlocks: return HomeCellData(title: "Blocks Preferences", icon: #imageLiteral(resourceName: "blocks"))
+        case .users: return HomeCellData(title: "Users", icon: #imageLiteral(resourceName: "user"))
+        case .registration: return HomeCellData(title: "Registration", icon: #imageLiteral(resourceName: "registration"))
+        case .schedule: return HomeCellData(title: "Schedule", icon: #imageLiteral(resourceName: "schedule"))
+        case .logout: return HomeCellData(title: "Log Out", icon: #imageLiteral(resourceName: "logout"))
         }
     }
     

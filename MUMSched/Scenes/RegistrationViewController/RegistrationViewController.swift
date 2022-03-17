@@ -11,6 +11,7 @@ protocol RegistrationViewDelegate: AnyObject {
     
     var view: RegistrationViewModelDelegate? { get set}
     func load()
+    func titleForSection(_ section: Int) -> String
     func numberOfSections() -> Int
     func numberOfRowsInSection(_ section: Int) -> Int
     func cellForRow(at indexPath: IndexPath) -> CellComponent?
@@ -98,7 +99,7 @@ extension RegistrationViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Block"
+        return viewModel.titleForSection(section)
     }
     
 //    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

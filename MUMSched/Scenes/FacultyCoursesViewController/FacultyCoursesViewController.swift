@@ -68,7 +68,7 @@ final class FacultyCoursesViewController: UIViewController {
     }
     
     private func setupTableView() {
-        tableView.registerNib(for: RegistrationTableViewCell.self)
+        tableView.registerNib(for: SelectCourseTableViewCell.self)
         tableView.dataSource = self
         tableView.delegate = self
     }
