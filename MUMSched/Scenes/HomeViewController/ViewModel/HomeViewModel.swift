@@ -11,7 +11,7 @@ enum HomeItem {
     case courses, facultyCourses, blocks, facultyBlocks, users, registration, schedule, logout
     
     static func getItemList() -> [HomeItem] {
-        guard let type = User.current?.role else { return [.facultyCourses, .courses, .registration] }
+        let type = User.current?.role ?? .ERROR
         switch type {
         case .ADMIN: return [.courses, .blocks, .users, .logout]
         case .FACULTY: return [.courses, .facultyCourses, .facultyBlocks, .schedule, .logout]
@@ -46,7 +46,12 @@ enum HomeItem {
         case .logout:
             User.current = nil
             view.dismiss()
-        default: break
+        default:
+            view.showSimpleAlertController("Ops!",
+                                           message: "Not ready yet!",
+                                           actions: nil,
+                                           cancel: false,
+                                           style: .alert)
         }
     }
 }
