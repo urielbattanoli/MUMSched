@@ -14,11 +14,15 @@ protocol AddCourseViewDelegate: AnyObject {
     var sendButtonTitle: String { get }
     var code: String { get set }
     var name: String { get set }
+    var description: String { get set }
     var showDelete: Bool { get }
     
     func isValid(showError: Bool) -> Bool
     func sendTouched()
     func deleteTouched()
+    func numberOfRowsInSection(_ section: Int) -> Int
+    func cellForRow(at indexPath: IndexPath) -> CellComponent?
+    func addPrerequisiteTouched()
 }
 
 final class AddCourseViewController: UIViewController {
@@ -36,6 +40,8 @@ final class AddCourseViewController: UIViewController {
     
     @IBOutlet private weak var idInputView: InputView!
     @IBOutlet private weak var nameInputView: InputView!
+    @IBOutlet private weak var descInputView: InputView!
+    @IBOutlet private weak var tableView: UITableView!
     @IBOutlet private weak var sendButton: UIButton!
     @IBOutlet private weak var deleteButton: UIButton!
     
@@ -56,6 +62,13 @@ final class AddCourseViewController: UIViewController {
         
         setupView()
         changeButtonState()
+        setupTableView()
+    }
+    
+    private func setupTableView() {
+        tableView.registerNib(for: RegistrationTableViewCell.self)
+        tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func setupView() {
@@ -72,6 +85,11 @@ final class AddCourseViewController: UIViewController {
         nameInputView.textField.placeholder = "Type the course name"
         nameInputView.text = viewModel.name
         nameInputView.textChanged = { [weak self] in self?.nameTextChanged() }
+        
+        descInputView.headerLabel.text = "Course Description"
+        descInputView.textField.placeholder = "Type the course description"
+        descInputView.text = viewModel.description
+        descInputView.textChanged = { [weak self] in self?.descTextChanged() }
     }
     
     private func idTextChanged() {
@@ -88,6 +106,13 @@ final class AddCourseViewController: UIViewController {
         changeButtonState()
     }
     
+    private func descTextChanged() {
+        viewModel.description = descInputView.text ?? ""
+        descInputView.hideErrorMessage()
+        descInputView.textField.rightView = nil
+        changeButtonState()
+    }
+    
     private func changeButtonState() {
         let isValid = viewModel.isValid(showError: false)
         sendButton.alpha = isValid ? 1 : 0.6
@@ -100,10 +125,18 @@ final class AddCourseViewController: UIViewController {
     @IBAction private func deleteTouched(_ sender: UIButton) {
         viewModel.deleteTouched()
     }
+    
+    @IBAction private func addPrerequisiteTouched(_ sender: UIButton) {
+        viewModel.addPrerequisiteTouched()
+    }
 }
 
 // MARK: - AddCourseViewModelDelegate
 extension AddCourseViewController: AddCourseViewModelDelegate {
+    
+    func reloadTableView() {
+        tableView.reloadData()
+    }
     
     func showIdError() {
         idInputView.showErrorMessage("Required")
@@ -112,4 +145,23 @@ extension AddCourseViewController: AddCourseViewModelDelegate {
     func showNameError() {
         nameInputView.showErrorMessage("Required")
     }
+}
+
+// MARK: - UITableViewDataSource
+extension AddCourseViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.numberOfRowsInSection(section)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cellComp = viewModel.cellForRow(at: indexPath) else { return UITableViewCell() }
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellComp.reuseId, for: indexPath)
+        (cell as? DynamicCellComponent)?.updateUI(with: cellComp.data)
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension AddCourseViewController: UITableViewDelegate {
 }

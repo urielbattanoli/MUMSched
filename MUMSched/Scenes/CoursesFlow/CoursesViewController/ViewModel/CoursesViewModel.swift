@@ -47,13 +47,13 @@ final class CoursesViewModel: CoursesViewDelegate {
         guard let view = view as? UIViewController else { return }
         let course = courses[indexPath.row]
         AddCourseViewController.present(in: view.navigationController ?? view,
-                                        viewModel: AddCourseViewModel(course: course, delegate: self))
+                                        viewModel: AddCourseViewModel(allCourses: courses, course: course, delegate: self))
     }
     
     func addNewCourse() {
         guard let view = view as? UIViewController else { return }
         AddCourseViewController.present(in: view.navigationController ?? view,
-                                        viewModel: AddCourseViewModel(delegate: self))
+                                        viewModel: AddCourseViewModel(allCourses: courses, delegate: self))
     }
 }
 

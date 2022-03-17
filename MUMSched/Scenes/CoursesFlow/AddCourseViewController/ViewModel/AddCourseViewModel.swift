@@ -16,28 +16,34 @@ protocol AddCourseViewModelDelegate: BaseProtocolDelegate {
     
     func showIdError()
     func showNameError()
+    func reloadTableView()
 }
 
 final class AddCourseViewModel: AddCourseViewDelegate {
-    
     
     weak var view: AddCourseViewModelDelegate?
     
     private var updateDelegate: UpdateDelegate
     private var course: Course?
     private var isEdit: Bool { return course != nil }
+    private let allCourses: [Course]
+    private var prerequisites: [Course]
     var title: String { isEdit ? "Edit Course" : "Add Course" }
     var sendButtonTitle: String { isEdit ? "Save Course" : "Add Course" }
     var code: String = ""
     var name: String = ""
+    var description: String = ""
     
     var showDelete: Bool { return isEdit }
     
-    init(course: Course? = nil, delegate: UpdateDelegate) {
+    init(allCourses: [Course], course: Course? = nil, delegate: UpdateDelegate) {
+        self.allCourses = allCourses.filter { $0.id != course?.id }
         self.course = course
         self.updateDelegate = delegate
         self.code = course?.code ?? ""
         self.name = course?.name ?? ""
+        self.description = course?.description ?? ""
+        self.prerequisites = allCourses.filter { course?.preRequisites.contains($0.code) ?? false }
     }
     
     func isValid(showError: Bool) -> Bool {
@@ -55,8 +61,13 @@ final class AddCourseViewModel: AddCourseViewDelegate {
         return !code.isEmpty && !name.isEmpty
     }
     
+    private var params: JSON {
+        let list = prerequisites.map { $0.code }
+        return ["code": code, "description": description, "name": name, "preRequisites": list]
+    }
+    
     private func addCourse() {
-        API<Course>.addCourse.request(params: ["code": self.code, "name": self.name], completion: { [weak self] result in
+        API<Course>.addCourse.request(params: params, completion: { [weak self] result in
             self?.view?.stopLoading?(completion: {
                 switch result {
                 case .success:
@@ -77,7 +88,7 @@ final class AddCourseViewModel: AddCourseViewDelegate {
     }
     
     private func updateCourse(id: Int) {
-        API<Course>.updateCourse(id: id).request(params: ["code": self.code, "name": self.name], completion: { [weak self] result in
+        API<Course>.updateCourse(id: id).request(params: params, completion: { [weak self] result in
             self?.view?.stopLoading?(completion: {
                 switch result {
                 case .success:
@@ -141,5 +152,42 @@ final class AddCourseViewModel: AddCourseViewDelegate {
                 })
             })
         })
+    }
+    
+    func numberOfRowsInSection(_ section: Int) -> Int {
+        return prerequisites.count
+    }
+    
+    func cellForRow(at indexPath: IndexPath) -> CellComponent? {
+        let course = prerequisites[indexPath.row]
+        let data = RegistrationCellVM(showIcon: false,
+                                      course: course,
+                                      deleteAction: deleteTouched(course: course))
+        return CellComponent(reuseId: RegistrationTableViewCell.reuseId, data: data)
+    }
+    
+    private func deleteTouched(course: Course) -> () -> Void {
+        return { [weak self] in
+            self?.prerequisites.removeAll(where: { $0.id == course.id })
+            self?.view?.reloadTableView()
+        }
+    }
+    
+    func addPrerequisiteTouched() {
+        guard let view = view as? UIViewController else { return }
+        let courses = allCourses.filter { !prerequisites.contains($0) }
+        let viewModel = SelectCourseViewModel(courses: courses,
+                                              delegate: self)
+        SelectCourseViewController.present(in: view.navigationController ?? view,
+                                           viewModel: viewModel)
+    }
+}
+
+// MARK: - SelectCourseViewDelegate
+extension AddCourseViewModel: SelectCourseDelegate {
+    
+    func didSelectCourse(_ course: Course) {
+        prerequisites.append(course)
+        view?.reloadTableView()
     }
 }

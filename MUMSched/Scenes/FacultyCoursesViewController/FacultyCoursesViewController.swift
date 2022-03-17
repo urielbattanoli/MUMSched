@@ -69,7 +69,6 @@ final class FacultyCoursesViewController: UIViewController {
     
     private func setupTableView() {
         tableView.registerNib(for: RegistrationTableViewCell.self)
-        tableView.dragInteractionEnabled = true
         tableView.dataSource = self
         tableView.delegate = self
     }
